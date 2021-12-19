@@ -10,11 +10,12 @@ OBJS=$(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(CFILES))
 NAME=$(BIN_DIR)push_swap
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
-	$(MAKE) -C $(LIBFT_DIR)
-	@mkdir -p $(dir $@)
+	@if [ ! -d "./$(OBJ_DIR)" ]; then mkdir $(dir $@); fi
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
+	@if [ ! -d "./$(BIN_DIR)" ]; then mkdir $(dir $@); fi
+	$(MAKE) -C $(LIBFT_DIR)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -L ./$(LIBFT_DIR)bin/ -lft
 
 all: $(NAME)
