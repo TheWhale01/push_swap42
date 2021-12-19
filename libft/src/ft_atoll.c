@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_atoll.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/19 19:26:35 by hubretec          #+#    #+#             */
-/*   Updated: 2021/12/19 21:50:00 by hubretec         ###   ########.fr       */
+/*   Created: 2021/12/19 21:19:51 by hubretec          #+#    #+#             */
+/*   Updated: 2021/12/19 21:22:04 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-# define STDIN 0
-# define STDOUT 1
-# define STDERR 2
-
-typedef struct s_stack
+long long	ft_atoll(const char *nptr)
 {
-	int	*stack;
-	int	len;
-}	t_stack;
+	long long	nb;
+	int			minus;
 
-int		checker(int ac, char **av);
-
-void	*free_stack(t_stack *stack);
-
-t_stack	*stack_init(int ac, char **av);
-
-#endif
+	nb = 0;
+	minus = 1;
+	while ((*nptr >= 9 && *nptr <= 13) || *nptr == 32)
+		nptr++;
+	if (*nptr == '-')
+	{
+		minus = -1;
+		nptr++;
+	}
+	else if (*nptr == '+')
+		nptr++;
+	while (*nptr >= '0' && *nptr <= '9')
+		nb = nb * 10 + (*(nptr++) - '0');
+	return (nb * minus);
+}
