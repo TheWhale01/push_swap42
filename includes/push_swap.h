@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 19:26:35 by hubretec          #+#    #+#             */
-/*   Updated: 2021/12/19 21:50:00 by hubretec         ###   ########.fr       */
+/*   Updated: 2021/12/19 22:01:54 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ typedef struct s_stack
 }	t_stack;
 
 int		checker(int ac, char **av);
+
+void	exit_with_msg(char *str);
 
 void	*free_stack(t_stack *stack);
 
