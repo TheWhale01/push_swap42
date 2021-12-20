@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 13:46:28 by hubretec          #+#    #+#             */
-/*   Updated: 2021/12/20 14:24:15 by hubretec         ###   ########.fr       */
+/*   Updated: 2021/12/20 16:24:21 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ void	pa(t_stack *a, t_stack *b)
 	tmp = malloc(sizeof(int) * (a->len));
 	if (!tmp)
 		return ;
-	tmp = ft_memcpy(tmp, a->stack, a->len);
+	tmp = tabcpy(a->stack, tmp, a->len);
 	a->stack = malloc(sizeof(int) * (a->len + 1));
 	if (!a->stack)
 		return ;
-	a->stack = ft_memcpy(a->stack, tmp, a->len);
+	a->stack = tabcpy(tmp, a->stack, a->len);
 	free(tmp);
 	a->stack[a->len] = b->stack[b->len - 1];
 	b->len--;

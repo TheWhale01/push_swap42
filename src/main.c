@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 17:45:38 by hubretec          #+#    #+#             */
-/*   Updated: 2021/12/20 14:26:47 by hubretec         ###   ########.fr       */
+/*   Updated: 2021/12/20 16:45:00 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,10 @@ int	main(int ac, char **av)
 	t_stack	*a;
 	t_stack	*b;
 
-	b = malloc(sizeof(t_stack) * 1);
-	if (!b)
-		return (0);
-	b->len = 0;
-	if (!checker(ac, av))
-		return (0);
+	checker(ac, av);
 	a = stack_init(ac, av);
-	pb(a, b);
-	pb(a, b);
-	pb(a, b);
-	pb(a, b);
-	pb(a, b);
-	pb(a, b);
+	check_sorted(a);
+	b = stack_init(1, 0);
 	display(a);
 	display(b);
 	free_stack(a);

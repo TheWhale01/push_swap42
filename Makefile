@@ -37,4 +37,6 @@ re: fclean all
 
 re_debug: fclean debug
 
-.PHONY: all debug clean fclean re_debug
+re_sanitize: fclean sanitize
+
+.PHONY: all debug clean fclean sanitize re_debug re_sanitize

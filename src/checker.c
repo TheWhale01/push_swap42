@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 19:21:25 by hubretec          #+#    #+#             */
-/*   Updated: 2021/12/19 20:10:28 by hubretec         ###   ########.fr       */
+/*   Updated: 2021/12/20 16:46:03 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,36 @@ void	exit_with_msg(char *str)
 	exit(0);
 }
 
-int	checker(int ac, char **av)
+void	check_sorted(t_stack *stack)
+{
+	int	i;
+	int	sorted;
+
+	if (stack->len == 1)
+	{
+		free_stack(stack);
+		exit(1);
+	}
+	i = -1;
+	sorted = 1;
+	while (++i < stack->len - 1)
+		if (stack->stack[i] > stack->stack[i + 1])
+			sorted = 0;
+	if (sorted)
+	{
+		free_stack(stack);
+		exit(1);
+	}	
+}
+
+void	checker(int ac, char **av)
 {
 	int	i;
 	int	j;
 
 	i = 0;
 	if (ac == 1)
-		exit_with_msg("Error\n");
+		exit(0);
 	while (++i < ac)
 	{
 		j = 0;
@@ -39,5 +61,4 @@ int	checker(int ac, char **av)
 			if (!ft_isdigit(av[i][j]))
 				exit_with_msg("Error\n");
 	}
-	return (1);
 }
