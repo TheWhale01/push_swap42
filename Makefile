@@ -5,12 +5,12 @@ SRC_DIR=src/
 LIBFT_DIR=libft/
 INCLUDES=includes/
 CFLAGS=-Wall -Wextra -Werror -I $(INCLUDES)
-CFILES=$(addprefix $(SRC_DIR), main.c checker.c stack.c)
+CFILES=$(addprefix $(SRC_DIR), main.c checker.c stack.c stack_func/p.c stack_func/r.c stack_func/rr.c stack_func/s.c)
 OBJS=$(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(CFILES))
 NAME=$(BIN_DIR)push_swap
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
-	@if [ ! -d "./$(OBJ_DIR)" ]; then mkdir $(dir $@); fi
+	@if [ ! -d "$(dir $@)" ]; then mkdir -p $(dir $@); fi
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
@@ -29,6 +29,9 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 	$(MAKE) fclean -C $(LIBFT_DIR)
+
+sanitize:CFLAGS=-Wall -Wextra -Werror -I $(INCLUDES) -fsanitize=address
+sanitize: fclean $(NAME)
 
 re: fclean all
 

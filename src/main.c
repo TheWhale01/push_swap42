@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 17:45:38 by hubretec          #+#    #+#             */
-/*   Updated: 2021/12/19 21:53:48 by hubretec         ###   ########.fr       */
+/*   Updated: 2021/12/20 14:26:47 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,25 @@ void	display(t_stack *stack)
 
 int	main(int ac, char **av)
 {
-	t_stack	*stack;
+	t_stack	*a;
+	t_stack	*b;
 
+	b = malloc(sizeof(t_stack) * 1);
+	if (!b)
+		return (0);
+	b->len = 0;
 	if (!checker(ac, av))
 		return (0);
-	if (!(stack = stack_init(ac, av)))
-		return (0);
-	display(stack);
-	free_stack(stack);
+	a = stack_init(ac, av);
+	pb(a, b);
+	pb(a, b);
+	pb(a, b);
+	pb(a, b);
+	pb(a, b);
+	pb(a, b);
+	display(a);
+	display(b);
+	free_stack(a);
+	free_stack(b);
 	return (0);
 }

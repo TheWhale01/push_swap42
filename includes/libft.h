@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 12:18:58 by hubretec          #+#    #+#             */
-/*   Updated: 2021/12/19 21:23:25 by hubretec         ###   ########.fr       */
+/*   Updated: 2021/12/20 12:28:32 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int			ft_putstr_fd(char const *s, int fd);
 int			ft_memcmp(void *s1, void *s2, size_t n);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 
+void		ft_swap(int *a, int *b);
 void		ft_putnbr_fd(int n, int fd);
 void		ft_bzero(void *s, size_t n);
 void		print_addr(void *p0, int *len);
