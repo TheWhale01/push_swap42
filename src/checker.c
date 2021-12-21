@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 19:21:25 by hubretec          #+#    #+#             */
-/*   Updated: 2021/12/20 16:46:03 by hubretec         ###   ########.fr       */
+/*   Updated: 2021/12/21 15:36:20 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	check_sorted(t_stack *stack)
 	if (stack->len == 1)
 	{
 		free_stack(stack);
-		exit(1);
+		exit(0);
 	}
 	i = -1;
 	sorted = 1;
@@ -38,7 +38,7 @@ void	check_sorted(t_stack *stack)
 	if (sorted)
 	{
 		free_stack(stack);
-		exit(1);
+		exit(0);
 	}	
 }
 
