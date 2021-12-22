@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 17:45:38 by hubretec          #+#    #+#             */
-/*   Updated: 2021/12/20 16:45:00 by hubretec         ###   ########.fr       */
+/*   Updated: 2021/12/22 10:33:09 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,11 @@ int	main(int ac, char **av)
 
 	checker(ac, av);
 	a = stack_init(ac, av);
-	check_sorted(a);
+	if (check_sorted(a))
+	{
+		free_stack(a);
+		return (0);
+	}
 	b = stack_init(1, 0);
 	display(a);
 	display(b);

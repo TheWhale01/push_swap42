@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 19:26:35 by hubretec          #+#    #+#             */
-/*   Updated: 2021/12/20 16:44:44 by hubretec         ###   ########.fr       */
+/*   Updated: 2021/12/22 10:48:44 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ typedef struct s_stack
 	int	len;
 }	t_stack;
 
-void	ra_b(t_stack *stack);
-void	sa_b(t_stack *stack);
-void	rra_b(t_stack *stack);
+int		check_sorted(t_stack *stack);
+int		solver(t_stack *a, t_stack *b);
+
 void	exit_with_msg(char *str);
 void	checker(int ac, char **av);
 void	pa(t_stack *a, t_stack *b);
@@ -33,7 +33,9 @@ void	pb(t_stack *a, t_stack *b);
 void	rr(t_stack *a, t_stack *b);
 void	ss(t_stack *a, t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
-void	check_sorted(t_stack *stack);
+void	sa_b(t_stack *stack, t_stack *none);
+void	ra_b(t_stack *stack, t_stack *none);
+void	rra_b(t_stack *stack, t_stack *none);
 
 void	*free_stack(t_stack *stack);
 

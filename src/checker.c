@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 19:21:25 by hubretec          #+#    #+#             */
-/*   Updated: 2021/12/21 15:36:20 by hubretec         ###   ########.fr       */
+/*   Updated: 2021/12/22 10:32:45 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,26 +20,17 @@ void	exit_with_msg(char *str)
 	exit(0);
 }
 
-void	check_sorted(t_stack *stack)
+int	check_sorted(t_stack *stack)
 {
 	int	i;
-	int	sorted;
 
 	if (stack->len == 1)
-	{
-		free_stack(stack);
-		exit(0);
-	}
+		return (0);
 	i = -1;
-	sorted = 1;
 	while (++i < stack->len - 1)
 		if (stack->stack[i] > stack->stack[i + 1])
-			sorted = 0;
-	if (sorted)
-	{
-		free_stack(stack);
-		exit(0);
-	}	
+			return (0);
+	return (1);
 }
 
 void	checker(int ac, char **av)

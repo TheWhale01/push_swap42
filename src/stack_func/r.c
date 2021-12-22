@@ -6,17 +6,18 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 13:46:03 by hubretec          #+#    #+#             */
-/*   Updated: 2021/12/20 14:00:56 by hubretec         ###   ########.fr       */
+/*   Updated: 2021/12/22 10:49:07 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra_b(t_stack *stack)
+void	ra_b(t_stack *stack, t_stack *none)
 {
 	int	i;
 	int	tmp;
 
+	(void)none;
 	i = stack->len;
 	tmp = stack->stack[i - 1];
 	while (--i > 0)
@@ -26,6 +27,6 @@ void	ra_b(t_stack *stack)
 
 void	rr(t_stack *a, t_stack *b)
 {
-	ra_b(a);
-	ra_b(b);
+	ra_b(a, b);
+	ra_b(b, a);
 }
