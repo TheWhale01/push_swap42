@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 19:26:35 by hubretec          #+#    #+#             */
-/*   Updated: 2021/12/22 10:48:44 by hubretec         ###   ########.fr       */
+/*   Updated: 2021/12/25 20:38:41 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # define STDIN 0
 # define STDOUT 1
 # define STDERR 2
+# define NB_OPS 8
 
 typedef struct s_stack
 {
@@ -24,6 +25,7 @@ typedef struct s_stack
 }	t_stack;
 
 int		check_sorted(t_stack *stack);
+int		solver(t_stack *a, t_stack *b);
 int		solver(t_stack *a, t_stack *b);
 
 void	exit_with_msg(char *str);

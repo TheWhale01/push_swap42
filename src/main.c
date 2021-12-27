@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 17:45:38 by hubretec          #+#    #+#             */
-/*   Updated: 2021/12/22 10:33:09 by hubretec         ###   ########.fr       */
+/*   Updated: 2021/12/25 20:13:41 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	b = stack_init(1, 0);
+	solver(a, b);
 	display(a);
 	display(b);
 	free_stack(a);

@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 19:21:25 by hubretec          #+#    #+#             */
-/*   Updated: 2021/12/22 10:32:45 by hubretec         ###   ########.fr       */
+/*   Updated: 2021/12/25 20:14:18 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	check_sorted(t_stack *stack)
 	int	i;
 
 	if (stack->len == 1)
-		return (0);
+		return (1);
 	i = -1;
 	while (++i < stack->len - 1)
 		if (stack->stack[i] > stack->stack[i + 1])
