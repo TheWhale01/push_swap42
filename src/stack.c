@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 21:01:39 by hubretec          #+#    #+#             */
-/*   Updated: 2021/12/19 22:06:27 by hubretec         ###   ########.fr       */
+/*   Updated: 2021/12/28 19:03:15 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@
 
 void	*free_stack(t_stack *stack)
 {
-	free(stack->stack);
-	free(stack);
+	if (stack->stack)
+		free(stack->stack);
+	if (stack)
+		free(stack);
 	return (NULL);
 }
 

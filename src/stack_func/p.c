@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 13:46:28 by hubretec          #+#    #+#             */
-/*   Updated: 2021/12/20 16:24:21 by hubretec         ###   ########.fr       */
+/*   Updated: 2021/12/28 19:06:20 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	*tabcpy(int *src, int *dest, size_t n)
 		dest[i] = src[i];
 		i++;
 	}
+	if (src)
+		free(src);
 	return (dest);
 }
 
@@ -41,10 +43,14 @@ void	pa(t_stack *a, t_stack *b)
 	if (!a->stack)
 		return ;
 	a->stack = tabcpy(tmp, a->stack, a->len);
-	free(tmp);
 	a->stack[a->len] = b->stack[b->len - 1];
 	b->len--;
 	a->len++;
+	if (!b->len)
+	{
+		free(b->stack);
+		b->stack = NULL;
+	}
 }
 
 void	pb(t_stack *a, t_stack *b)
@@ -61,8 +67,12 @@ void	pb(t_stack *a, t_stack *b)
 	if (!b->stack)
 		return ;
 	b->stack = tabcpy(tmp, b->stack, b->len);
-	free(tmp);
 	b->stack[b->len] = a->stack[a->len - 1];
 	a->len--;
 	b->len++;
+	if (!a->len)
+	{
+		free(a->stack);
+		a->stack = NULL;
+	}
 }

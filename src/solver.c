@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 10:28:06 by hubretec          #+#    #+#             */
-/*   Updated: 2021/12/25 21:31:38 by hubretec         ###   ########.fr       */
+/*   Updated: 2021/12/28 18:51:37 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ void	init_func(void (*tab[NB_OPS])(t_stack *, t_stack *))
 
 int	sort(int stop, t_stack *a, t_stack *b)
 {
-	
+	(void)stop;
+	(void)a;
+	(void)b;
+	return (0);
 }
 
 int	solver(t_stack *a, t_stack *b)
@@ -36,5 +39,6 @@ int	solver(t_stack *a, t_stack *b)
 
 	init_func(tab);
 	tab[7](a, b);
+	tab[6](a, b);
 	return (0);
 }
