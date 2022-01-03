@@ -6,21 +6,31 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 12:19:54 by hubretec          #+#    #+#             */
-/*   Updated: 2021/12/22 10:50:18 by hubretec         ###   ########.fr       */
+/*   Updated: 2021/12/28 19:27:31 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
 
-void	sa_b(t_stack *stack, t_stack *none)
+void	sa(t_stack *a, t_stack *none)
 {
 	(void)none;
-	ft_swap(&stack->stack[stack->len - 1], &stack->stack[stack->len - 2]);
+	if (a->len < 2)
+		return ;
+	ft_swap(&a->stack[a->len - 1], &a->stack[a->len - 2]);
+}
+
+void	sb(t_stack *none, t_stack *b)
+{
+	(void)none;
+	if (b->len < 2)
+		return ;
+	ft_swap(&b->stack[b->len - 1], &b->stack[b->len - 2]);
 }
 
 void	ss(t_stack *a, t_stack *b)
 {
-	sa_b(a, b);
-	sa_b(b, a);
+	sa(a, b);
+	sb(a, b);
 }

@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 21:01:39 by hubretec          #+#    #+#             */
-/*   Updated: 2021/12/28 19:03:15 by hubretec         ###   ########.fr       */
+/*   Updated: 2021/12/30 12:27:32 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 #include <stdlib.h>
 #include "libft.h"
 #include "push_swap.h"
+
+void	*free_tab(int *tab)
+{
+	free(tab);
+	return (NULL);
+}
 
 void	*free_stack(t_stack *stack)
 {
