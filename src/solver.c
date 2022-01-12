@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 10:28:06 by hubretec          #+#    #+#             */
-/*   Updated: 2021/12/30 12:28:01 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/03 12:02:45 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,9 @@ int	*sort(int n, void (*ops[NB_OPS])(t_stack *, t_stack *),
 	t_stack	*b_cpy;
 
 	i = -1;
+	tab = malloc(sizeof(int) * NB_OPS);
+	if (!tab)
+		return (NULL);
 	while (++i < n)
 		tab[i] = 0;
 	while (tab[0] <= NB_OPS - n)
@@ -62,13 +65,13 @@ int	*sort(int n, void (*ops[NB_OPS])(t_stack *, t_stack *),
 		a_cpy = stack_init(1, NULL);
 		b_cpy = stack_init(1, NULL);
 		if (!a_cpy || !b_cpy)
-			return ();
+			return (NULL);
 		a_cpy->stack = tabcpy(a->stack, a_cpy->stack, a->len);
 		b_cpy->stack = tabcpy(b->stack, b_cpy->stack, b->len);
 		tab[n - 1]++;
 		i = 0;
 		while (++i < n)
-			if (tab[i] > (10 - n) + i)
+			if (tab[i] > (NB_OPS - n) + i)
 				tab[i] = tab[i - 1]++ + 1;
 		if (exec_comb(n, tab, ops, a, b))
 			return (tab);
