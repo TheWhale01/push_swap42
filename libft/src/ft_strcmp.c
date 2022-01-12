@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 11:07:08 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/12 16:15:17 by hubretec         ###   ########.fr       */
+/*   Created: 2021/11/23 15:26:30 by hubretec          #+#    #+#             */
+/*   Updated: 2022/01/12 16:03:04 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
+#include <stddef.h>
 
-t_list	*ft_lstnew(void *content, size_t size)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	t_list	*node;
-
-	node = (t_list *)malloc(sizeof(t_list) * 1);
-	if (!node)
-		return (NULL);
-	node->content = malloc(size);
-	if (!node->content)
+	while (*s1 && (*s1 == *s2))
 	{
-		free(node);
-		return (NULL);
+		s1++;
+		s2++;
 	}
-	ft_memcpy(node->content, content, size);
-	node->next = NULL;
-	return (node);
+	return (*(const unsigned char *)s1 - *(const unsigned char *)s2);
 }

@@ -5,72 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/19 21:01:39 by hubretec          #+#    #+#             */
-/*   Updated: 2021/12/30 12:27:32 by hubretec         ###   ########.fr       */
+/*   Created: 2022/01/12 12:20:13 by hubretec          #+#    #+#             */
+/*   Updated: 2022/01/12 16:16:06 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <limits.h>
 #include <stdlib.h>
 #include "libft.h"
 #include "push_swap.h"
 
-void	*free_tab(int *tab)
+t_list	*stack_init(char **tab)
 {
-	free(tab);
-	return (NULL);
-}
-
-void	*free_stack(t_stack *stack)
-{
-	if (stack->stack)
-		free(stack->stack);
-	if (stack)
-		free(stack);
-	return (NULL);
-}
-
-void	check_stack(t_stack *stack)
-{
-	int	i;
-	int	j;
+	int		i;
+	t_list	*tmp;
+	t_list	*stack;
 
 	i = -1;
-	if (!stack || !stack->stack)
-		exit_with_msg("Error\n");
-	while (++i < stack->len)
+	stack = malloc(sizeof(t_list) * 1);
+	if (!stack)
+		return (NULL);
+	stack->next = NULL;
+	while (tab[++i])
 	{
-		j = i;
-		while (++j < stack->len)
+		tmp = ft_lstnew(&tab[i], sizeof(tab[i]));
+		if (!tmp)
 		{
-			if (stack->stack[i] == stack->stack[j])
-			{
-				free_stack(stack);
-				exit_with_msg("Error\n");
-			}
+			ft_lstclear(&stack, free);
+			return (NULL);
 		}
 	}
-}
-
-t_stack	*stack_init(int ac, char **av)
-{
-	int				i;
-	long long int	n;
-	t_stack			*stack;
-
-	stack = malloc(sizeof(t_stack) * 1);
-	stack->stack = malloc(sizeof(int) * (ac - 1));
-	if (!stack || !stack->stack)
-		return (free_stack(stack));
-	i = 0;
-	while (++i < ac)
-	{
-		n = ft_atoll(av[i]);
-		if (n < INT_MIN || n > INT_MAX)
-			return (free_stack(stack));
-		stack->stack[i - 1] = n;
-	}
-	stack->len = ac - 1;
-	check_stack(stack);
 	return (stack);
 }

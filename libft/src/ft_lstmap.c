@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 15:41:32 by hubretec          #+#    #+#             */
-/*   Updated: 2021/11/24 16:06:02 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/12 16:17:06 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	tmp = lst;
 	while (tmp)
 	{
-		tmp_node = ft_lstnew(f(tmp->content));
+		tmp_node = ft_lstnew(f(tmp->content), sizeof(tmp->content));
 		if (!tmp_node)
 		{
 			ft_lstclear(&new, del);

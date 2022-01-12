@@ -1,36 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s.c                                                :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/20 12:19:54 by hubretec          #+#    #+#             */
-/*   Updated: 2021/12/28 19:27:31 by hubretec         ###   ########.fr       */
+/*   Created: 2022/01/12 14:01:08 by hubretec          #+#    #+#             */
+/*   Updated: 2022/01/12 15:21:39 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 #include "push_swap.h"
 
-void	sa(t_stack *a, t_stack *none)
+int	tablen(char **tab)
 {
-	(void)none;
-	if (a->len < 2)
-		return ;
-	ft_swap(&a->stack[a->len - 1], &a->stack[a->len - 2]);
+	int	i;
+
+	i = 0;
+	while (tab && tab[i])
+		i++;
+	return (i);
 }
 
-void	sb(t_stack *none, t_stack *b)
+void	exit_with_msg(char *str, char **tab)
 {
-	(void)none;
-	if (b->len < 2)
-		return ;
-	ft_swap(&b->stack[b->len - 1], &b->stack[b->len - 2]);
+	free_tab(tab);
+	ft_putendl_fd(str, STDERR);
+	exit(0);
 }
 
-void	ss(t_stack *a, t_stack *b)
+void	*free_tab(char **tab)
 {
-	sa(a, b);
-	sb(a, b);
+	int	i;
+
+	i = -1;
+	while (tab && tab[++i])
+		free(tab[i]);
+	free(tab);
+	return (NULL);
 }

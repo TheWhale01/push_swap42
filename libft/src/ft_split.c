@@ -6,13 +6,13 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 15:12:56 by hubretec          #+#    #+#             */
-/*   Updated: 2021/12/19 19:57:26 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/12 13:45:16 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-static int	count_words(char const *s, char c)
+int	count_words(char const *s, char c)
 {
 	int	i;
 	int	words;
