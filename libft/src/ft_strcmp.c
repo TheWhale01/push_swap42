@@ -6,11 +6,9 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 15:26:30 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/12 16:03:04 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/13 14:11:03 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stddef.h>
 
 int	ft_strcmp(const char *s1, const char *s2)
 {

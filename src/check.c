@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:49:56 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/12 16:26:51 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/13 14:12:52 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int	check_double(char **tab)
 		index2 = 0;
 		if (tab[i][0] == '+')
 			index1 = 1;
-		if (tab[j][0] == '+')
+		if (tab[j] && tab[j][0] == '+')
 			index2 = 1;
 		while (tab[j])
 			if (!ft_strcmp(&tab[i][index1], &tab[j++][index2]))
