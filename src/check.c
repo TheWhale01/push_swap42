@@ -6,12 +6,11 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:49:56 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/13 14:32:36 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/13 15:32:48 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
 #include "push_swap.h"
 
 void	display(char **tab)
@@ -63,8 +62,10 @@ char	**get_tab(int ac, char **av)
 	while (++i < ac)
 	{
 		tmp = ft_split(av[i], ' ');
+		//if (i == 2)
+		//	tmp = NULL;
 		if (!tmp)
-			return (NULL);
+			exit_with_msg("Memory Error.", tab);
 		tab = ft_tabadd(tab, tmp);
 	}
 	return (tab);

@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 19:26:35 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/13 14:46:41 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/13 15:31:37 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 # define INT_MAX 2147483647
 
 int		tablen(char **tab);
+int		check_sorted(t_list *lst);
 
-void	display_lst(t_list *lst);
 void	exit_with_msg(char *str, char **tab);
 
 void	*free_tab(char **tab);

@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:42:45 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/13 14:52:17 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/13 15:32:00 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int ac, char **av)
 
 	tab = check(ac, av);
 	lst = stack_init(tab);
-	display_lst(lst);
-	printf("done !\n");
+	if (!lst)
+		return (0);
 	return (0);
 }
