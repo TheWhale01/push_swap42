@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:49:56 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/13 15:32:48 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/13 21:35:57 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,6 @@ char	**get_tab(int ac, char **av)
 	while (++i < ac)
 	{
 		tmp = ft_split(av[i], ' ');
-		//if (i == 2)
-		//	tmp = NULL;
 		if (!tmp)
 			exit_with_msg("Memory Error.", tab);
 		tab = ft_tabadd(tab, tmp);
@@ -101,7 +99,7 @@ char	**check(int ac, char **av)
 	int		j;
 	char	**tab;
 
-	if (ac <= 2)
+	if (ac == 1 || (ac == 2 && ft_strlen(av[1]) == 1))
 		exit(0);
 	i = -1;
 	tab = get_tab(ac, av);

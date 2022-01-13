@@ -5,7 +5,7 @@ SRC_DIR=src/
 LIBFT_DIR=libft/
 INCLUDES=includes/
 CFLAGS=-Wall -Wextra -Werror -I $(INCLUDES)
-CFILES=$(addprefix $(SRC_DIR), main.c check.c stack.c utils.c stack_func/pop.c stack_func/s.c stack_func/p.c stack_func/r.c)
+CFILES=$(addprefix $(SRC_DIR), main.c check.c stack.c utils.c solver.c stack_func/pop.c stack_func/s.c stack_func/p.c stack_func/r.c)
 OBJS=$(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(CFILES))
 NAME=$(BIN_DIR)push_swap
 
@@ -21,7 +21,7 @@ $(NAME): $(OBJS)
 all: $(NAME)
 
 debug: CFLAGS=-Wall -Wextra -Werror -I $(INCLUDES) -g
-debug: fclean $(NAME)
+debug: $(NAME)
 
 clean:
 	rm -f $(OBJS)
@@ -31,7 +31,7 @@ fclean: clean
 	$(MAKE) fclean -C $(LIBFT_DIR)
 
 sanitize:CFLAGS=-Wall -Wextra -Werror -I $(INCLUDES) -fsanitize=address
-sanitize: fclean $(NAME)
+sanitize: $(NAME)
 
 re: fclean all
 

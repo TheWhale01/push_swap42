@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 19:26:35 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/13 16:48:06 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/13 22:25:46 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	pa(t_list **a, t_list **b);
 void	pb(t_list **a, t_list **b);
 void	ss(t_list **a, t_list **b);
 void	rrr(t_list **a, t_list **b);
+void	push_min_top(t_list **stack);
 void	exit_with_msg(char *str, char **tab);
 
 void	*free_tab(char **tab);
