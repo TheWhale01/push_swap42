@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 12:20:13 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/12 16:16:06 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/13 14:46:27 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
 
 t_list	*stack_init(char **tab)
 {
-	int		i;
-	t_list	*tmp;
-	t_list	*stack;
+	int			i;
+	t_list		*tmp;
+	t_list		*stack;
+	long long	nb;
 
 	i = -1;
 	stack = malloc(sizeof(t_list) * 1);
@@ -27,12 +28,14 @@ t_list	*stack_init(char **tab)
 	stack->next = NULL;
 	while (tab[++i])
 	{
-		tmp = ft_lstnew(&tab[i], sizeof(tab[i]));
+		nb = ft_atoll(tab[i]);
+		if (nb < INT_MIN || nb > INT_MAX)
+			return (free_lst(&stack));
+		tmp = ft_lstnew(&nb, sizeof(nb));
 		if (!tmp)
-		{
-			ft_lstclear(&stack, free);
-			return (NULL);
-		}
+			return (free_lst(&stack));
+		ft_lstadd_front(&stack, tmp);
 	}
+	free_tab(tab);
 	return (stack);
 }

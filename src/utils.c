@@ -6,10 +6,11 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 14:01:08 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/12 15:21:39 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/13 14:49:12 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <stdlib.h>
 #include "libft.h"
 #include "push_swap.h"
@@ -40,4 +41,23 @@ void	*free_tab(char **tab)
 		free(tab[i]);
 	free(tab);
 	return (NULL);
+}
+
+void	*free_lst(t_list **lst)
+{
+	ft_lstclear(lst, free);
+	return (NULL);
+}
+
+void	display_lst(t_list *lst)
+{
+	t_list	*tmp;
+
+	tmp = lst;
+	while (tmp->next)
+	{
+		printf("%d -> ", *(int *)tmp->content);
+		tmp = tmp->next;
+	}
+	printf("NULL\n");
 }

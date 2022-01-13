@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:49:56 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/13 14:12:52 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/13 14:32:36 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,13 +94,13 @@ int	check_double(char **tab)
 	return (0);
 }
 
-void	check(int ac, char **av)
+char	**check(int ac, char **av)
 {
 	int		i;
 	int		j;
 	char	**tab;
 
-	if (ac == 1)
+	if (ac <= 2)
 		exit(0);
 	i = -1;
 	tab = get_tab(ac, av);
@@ -118,5 +118,5 @@ void	check(int ac, char **av)
 	}
 	if (check_double(tab))
 		exit_with_msg("Error", tab);
-	free_tab(tab);
+	return (tab);
 }
