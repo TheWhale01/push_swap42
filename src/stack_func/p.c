@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   p.c                                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 11:42:45 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/13 16:58:13 by hubretec         ###   ########.fr       */
+/*   Created: 2022/01/13 16:23:33 by hubretec          #+#    #+#             */
+/*   Updated: 2022/01/13 16:57:04 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+void	pa(t_list **a, t_list **b)
 {
-	t_list	*a;
-	t_list	*b;
-	char	**tab;
+	if (!*b)
+		return ;
+	ft_lstadd_back(a, pop_top(b));
+}
 
-	b = NULL;
-	tab = check(ac, av);
-	a = stack_init(tab);
-	if (!a)
-		return (0);
-	return (0);
+void	pb(t_list **a, t_list **b)
+{
+	if (!*a)
+		return ;
+	ft_lstadd_back(b, pop_top(a));
 }

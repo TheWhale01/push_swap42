@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   pop.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 11:42:45 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/13 16:58:13 by hubretec         ###   ########.fr       */
+/*   Created: 2022/01/13 15:43:00 by hubretec          #+#    #+#             */
+/*   Updated: 2022/01/13 16:10:01 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+t_list	*pop_top(t_list **stack)
 {
-	t_list	*a;
-	t_list	*b;
-	char	**tab;
+	t_list	*tmp;
+	t_list	*pop;
 
-	b = NULL;
-	tab = check(ac, av);
-	a = stack_init(tab);
-	if (!a)
-		return (0);
-	return (0);
+	tmp = *stack;
+	pop = ft_lstlast(*stack);
+	while (tmp->next->next)
+		tmp = tmp->next;
+	tmp->next = NULL;
+	return (pop);
+}
+
+t_list	*pop_bottom(t_list	**stack)
+{
+	t_list	*pop;
+
+	pop = *stack;
+	*stack = (*stack)->next;
+	pop->next = NULL;
+	return (pop);
 }

@@ -5,7 +5,7 @@ SRC_DIR=src/
 LIBFT_DIR=libft/
 INCLUDES=includes/
 CFLAGS=-Wall -Wextra -Werror -I $(INCLUDES)
-CFILES=$(addprefix $(SRC_DIR), main.c check.c stack.c utils.c)
+CFILES=$(addprefix $(SRC_DIR), main.c check.c stack.c utils.c stack_func/pop.c stack_func/s.c stack_func/p.c stack_func/r.c)
 OBJS=$(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(CFILES))
 NAME=$(BIN_DIR)push_swap
 

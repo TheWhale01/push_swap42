@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 19:26:35 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/13 15:31:37 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/13 16:48:06 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,29 @@
 # define STDERR 2
 # define INT_MIN -2147483648
 # define INT_MAX 2147483647
+# define STACK_A 0
+# define STACK_B 1
 
 int		tablen(char **tab);
 int		check_sorted(t_list *lst);
 
+void	display_lst(t_list *lst);
+void	sa_b(t_list **stack);
+void	ra_b(t_list **stack);
+void	rra_b(t_list **stack);
+void	rr(t_list **a, t_list **b);
+void	pa(t_list **a, t_list **b);
+void	pb(t_list **a, t_list **b);
+void	ss(t_list **a, t_list **b);
+void	rrr(t_list **a, t_list **b);
 void	exit_with_msg(char *str, char **tab);
 
 void	*free_tab(char **tab);
 void	*free_lst(t_list **lst);
 
 t_list	*stack_init(char **tab);
+t_list	*pop_top(t_list **stack);
+t_list	*pop_bottom(t_list	**stack);
 
 char	**check(int ac, char **av);
 
