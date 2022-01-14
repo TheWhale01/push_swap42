@@ -6,11 +6,11 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 21:52:01 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/13 22:50:28 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/14 13:46:51 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <stdlib.h>
 #include "push_swap.h"
 
 int	get_min_index(t_list *stack)
@@ -44,11 +44,17 @@ void	push_min_top(t_list **stack)
 
 	len = ft_lstsize(*stack);
 	index = get_min_index(*stack);
-	printf("%d\n", index);
 	if (index >= 0 && index <= len / 2)
 		while (index--)
 			ra_b(stack);
 	else
 		while (index++ < len)
 			rra_b(stack);
+	if (check_sorted(*stack))
+		exit(0);
+}
+
+t_list	*lis(t_list	**stack)
+{
+	
 }

@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:49:56 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/13 21:35:57 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/14 11:43:58 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ char	**check(int ac, char **av)
 	int		j;
 	char	**tab;
 
-	if (ac == 1 || (ac == 2 && ft_strlen(av[1]) == 1))
+	if (ac == 1)
 		exit(0);
 	i = -1;
 	tab = get_tab(ac, av);
@@ -115,6 +115,8 @@ char	**check(int ac, char **av)
 			if (!ft_isdigit(tab[i][j]))
 				exit_with_msg("Error", tab);
 	}
+	if (tablen(tab) == 1)
+		return (free_tab(tab));
 	if (check_double(tab))
 		exit_with_msg("Error", tab);
 	return (tab);

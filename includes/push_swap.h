@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 19:26:35 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/13 22:25:46 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/14 12:59:08 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@
 # define STDERR 2
 # define INT_MIN -2147483648
 # define INT_MAX 2147483647
-# define STACK_A 0
-# define STACK_B 1
 
 int		tablen(char **tab);
 int		check_sorted(t_list *lst);
