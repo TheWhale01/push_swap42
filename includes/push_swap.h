@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 19:26:35 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/14 12:59:08 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/14 17:55:09 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 int		tablen(char **tab);
 int		check_sorted(t_list *lst);
 
+void	lis(t_list	**stack);
 void	display_lst(t_list *lst);
 void	sa_b(t_list **stack);
 void	ra_b(t_list **stack);

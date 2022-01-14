@@ -6,10 +6,11 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 21:52:01 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/14 13:46:51 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/14 18:10:57 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <stdlib.h>
 #include "push_swap.h"
 
@@ -54,7 +55,21 @@ void	push_min_top(t_list **stack)
 		exit(0);
 }
 
-t_list	*lis(t_list	**stack)
+void	lis(t_list	**stack, int *lens, int len)
 {
-	
+	t_list	*tmp;
+
+	if (!stack)
+		return ;
+	else if (!(*stack)->next)
+		return ;
+	lis(&((*stack)->next), lens, len);
+	tmp = (*stack)->next;
+	while (tmp)
+	{
+		if (*(int *)(*stack)->content < *(int *)tmp->content)
+			
+		tmp = tmp->next;
+	}
+	free(len);
 }

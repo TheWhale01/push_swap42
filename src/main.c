@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:42:45 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/13 22:30:42 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/14 17:57:55 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	main(int ac, char **av)
 	a = stack_init(tab);
 	if (!a)
 		return (0);
-	push_min_top(&a);
-	display_lst(a);
+	//push_min_top(&a);
+	lis(&a);
 	free_lst(&a);
 	return (0);
 }
