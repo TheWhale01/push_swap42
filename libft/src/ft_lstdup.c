@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 11:42:45 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/15 11:30:34 by hubretec         ###   ########.fr       */
+/*   Created: 2022/01/15 11:24:10 by hubretec          #+#    #+#             */
+/*   Updated: 2022/01/15 11:25:19 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+t_list	*ft_lstdup(t_list *lst, void (*del)(void *))
 {
-	char	**tab;
-	t_list	*a;
+	t_list	*new;
 	t_list	*tmp;
+	t_list	*tmp_node;
 
-	tab = check(ac, av);
-	a = stack_init(tab);
-	if (!a)
-		return (0);
-	tmp = push_min_top(&a);
-	printf("lol\n");
-	display_lst(a);
-	free_lst(&a);
-	return (0);
+	new = 0;
+	tmp = lst;
+	while (tmp)
+	{
+		tmp_node = ft_lstnew(tmp->content, sizeof(tmp->content));
+		if (!tmp_node)
+		{
+			ft_lstclear(&new, del);
+			return (0);
+		}
+		ft_lstadd_back(&new, tmp_node);
+		tmp = tmp->next;
+	}
+	return (new);
 }

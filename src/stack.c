@@ -6,28 +6,26 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 12:20:13 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/13 16:59:25 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/15 11:02:02 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "push_swap.h"
 
-int	check_sorted(t_list *stack)
+int	check_sorted(t_list **stack)
 {
 	t_list	*tmp;
 
-	tmp = stack;
+	tmp = *stack;
 	while (tmp->next)
 	{
-		if (*(int *)tmp->content < *(int *)tmp->next->content)
-		{
-			ft_lstclear(&stack, free);
-			return (1);
-		}
+		if (*(int *)tmp->content > *(int *)tmp->next->content)
+			return (0);
 		tmp = tmp->next;
 	}
-	return (0);
+	free_lst(stack);
+	return (1);
 }
 
 t_list	*stack_init(char **tab)
@@ -50,7 +48,7 @@ t_list	*stack_init(char **tab)
 		ft_lstadd_back(&stack, tmp);
 	}
 	free_tab(tab);
-	if (check_sorted(tmp))
+	if (check_sorted(&tmp))
 		return (free_lst(&tmp));
 	return (stack);
 }

@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 19:26:35 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/14 17:55:09 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/15 11:27:28 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,8 @@
 # define INT_MAX 2147483647
 
 int		tablen(char **tab);
-int		check_sorted(t_list *lst);
+int		check_sorted(t_list **lst);
 
-void	lis(t_list	**stack);
 void	display_lst(t_list *lst);
 void	sa_b(t_list **stack);
 void	ra_b(t_list **stack);
@@ -35,7 +34,6 @@ void	pa(t_list **a, t_list **b);
 void	pb(t_list **a, t_list **b);
 void	ss(t_list **a, t_list **b);
 void	rrr(t_list **a, t_list **b);
-void	push_min_top(t_list **stack);
 void	exit_with_msg(char *str, char **tab);
 
 void	*free_tab(char **tab);
@@ -44,6 +42,7 @@ void	*free_lst(t_list **lst);
 t_list	*stack_init(char **tab);
 t_list	*pop_top(t_list **stack);
 t_list	*pop_bottom(t_list	**stack);
+t_list	*push_min_top(t_list **stack);
 
 char	**check(int ac, char **av);
 
