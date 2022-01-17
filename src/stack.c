@@ -6,10 +6,11 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 12:20:13 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/15 11:02:02 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/17 11:18:58 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <stdlib.h>
 #include "push_swap.h"
 
@@ -24,7 +25,7 @@ int	check_sorted(t_list **stack)
 			return (0);
 		tmp = tmp->next;
 	}
-	free_lst(stack);
+	ft_lstclear(stack, free);
 	return (1);
 }
 
@@ -42,13 +43,13 @@ t_list	*stack_init(char **tab)
 		nb = ft_atoll(tab[i]);
 		if (nb < INT_MIN || nb > INT_MAX)
 			return (free_lst(&stack));
-		tmp = ft_lstnew(&nb, sizeof(int));
+		tmp = ft_lstnew(&nb, sizeof(tmp->content));
 		if (!tmp)
 			return (free_lst(&stack));
 		ft_lstadd_back(&stack, tmp);
 	}
 	free_tab(tab);
-	if (check_sorted(&tmp))
-		return (free_lst(&tmp));
+	if (check_sorted(&stack))
+		return (free_lst(&stack));
 	return (stack);
 }

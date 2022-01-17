@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 12:18:58 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/15 11:25:53 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/17 13:56:06 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void		ft_lstdelone(t_list *lst, void (*del)(void *));
 void		ft_lstclear(t_list **lst, void (*del)(void *));
 void		ft_striteri(char *s, void (*f)(unsigned int, char *));
 void		ft_putnbr_base_u(unsigned int nb, char *base, int *len);
+void		ft_lstreplace_index(t_list *stack, t_list *new, int index);
 
 char		*ft_itoa(int n);
 char		*ft_strdup(char *src);

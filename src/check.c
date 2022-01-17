@@ -6,21 +6,12 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:49:56 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/14 11:43:58 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/17 11:04:37 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "push_swap.h"
-
-void	display(char **tab)
-{
-	int	i;
-
-	i = 0;
-	while (tab[i])
-		ft_putendl_fd(tab[i++], STDOUT);
-}
 
 char	**ft_tabadd(char **tab, char **add)
 {

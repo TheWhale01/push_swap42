@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 19:26:35 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/15 11:27:28 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/17 11:19:18 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	exit_with_msg(char *str, char **tab);
 void	*free_tab(char **tab);
 void	*free_lst(t_list **lst);
 
+t_list	*get_lis(t_list *stack);
 t_list	*stack_init(char **tab);
 t_list	*pop_top(t_list **stack);
 t_list	*pop_bottom(t_list	**stack);
