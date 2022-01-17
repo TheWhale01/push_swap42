@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 21:52:01 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/17 15:47:18 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/17 16:04:59 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ t_list	*find_next(t_list *stack, void *content)
 
 t_list	*get_lis(t_list *stack)
 {
+	int		index;
 	t_list	*tmp;
 	t_list	*lis;
-	t_list	*next;
 
 	lis = NULL;
 	tmp = stack->next;
@@ -64,9 +64,8 @@ t_list	*get_lis(t_list *stack)
 			ft_lstadd_back(&lis, ft_lstnew(tmp->content, sizeof(tmp->content)));
 		else
 		{
-			next = find_next(stack, tmp->content);
-			ft_lstreplace_index(lis, next,
-				ft_lstindex(lis, next) - *(int *)lis->content);
+			index = *(int *)(find_next(lis, tmp->content)) - *(int *)stack->content;
+			ft_lstreplace_index(lis, tmp, index);
 		}
 		tmp = tmp->next;
 	}
