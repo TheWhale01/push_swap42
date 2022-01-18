@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 12:20:13 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/18 14:23:52 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/18 14:53:25 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,10 @@ t_list	*stack_init(char **tab)
 	{
 		nb = ft_atoll(tab[i]);
 		if (nb < INT_MIN || nb > INT_MAX)
+		{
+			ft_putendl_fd("Error", STDERR);
 			return (free_lst(&stack));
+		}
 		tmp = ft_lstnew(&nb, sizeof(tmp->content));
 		if (!tmp)
 			return (free_lst(&stack));

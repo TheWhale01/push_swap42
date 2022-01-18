@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 14:01:08 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/18 14:06:03 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/18 16:53:47 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,19 @@ void	display_lst(t_list *lst)
 	{
 		printf("%d -> ", *(int *)tmp->content);
 		tmp = tmp->next;
+	}
+	printf("NULL\n");
+}
+
+void	display_lst_rev(t_list *lst)
+{
+	t_list	*tmp;
+
+	tmp = ft_lstlast(lst);
+	while (tmp)
+	{
+		printf("%d -> ", *(int *)tmp->content);
+		tmp = tmp->prev;
 	}
 	printf("NULL\n");
 }

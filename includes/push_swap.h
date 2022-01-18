@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 19:26:35 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/18 14:06:36 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/18 16:54:03 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ char	**check(int ac, char **av);
 
 void	display_lst(t_list *stack);
 void	display_tab(int *tab, int len);
+void	display_lst_rev(t_list *lst);
 
 #endif

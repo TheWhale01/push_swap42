@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 11:07:08 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/12 16:15:17 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/18 16:53:54 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ t_list	*ft_lstnew(void *content, size_t size)
 	}
 	ft_memcpy(node->content, content, size);
 	node->next = NULL;
+	node->prev = NULL;
 	return (node);
 }

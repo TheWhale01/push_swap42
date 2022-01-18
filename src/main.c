@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:42:45 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/18 14:03:23 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/18 16:55:50 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@ int	main(int ac, char **av)
 	t_list	*a;
 	t_list	*b;
 
+	b = NULL;
 	a = stack_init(check(ac, av));
 	if (!a)
 		return (0);
-	b = NULL;
-	non_lis_to_b(&a, push_min_top(&a), &b);
+	pb(&a, &b);
+	pb(&a, &b);
 	ft_printf("stack a : ");
-	display_lst(a);
+	display_lst_rev(a);
 	ft_printf("stack b : ");
 	display_lst(b);
 	ft_lstclear(&a, free);

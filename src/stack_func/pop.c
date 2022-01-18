@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 15:43:00 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/13 16:10:01 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/18 16:55:26 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_list	*pop_top(t_list **stack)
 
 	tmp = *stack;
 	pop = ft_lstlast(*stack);
+	pop->prev = NULL;
 	while (tmp->next->next)
 		tmp = tmp->next;
 	tmp->next = NULL;
