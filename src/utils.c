@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 14:01:08 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/15 11:25:34 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/18 14:06:03 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void	*free_lst(t_list **lst)
 	return (NULL);
 }
 
+/* ---- TO REMOVE ---- */
+
 void	display_lst(t_list *lst)
 {
 	t_list	*tmp;
@@ -59,4 +61,14 @@ void	display_lst(t_list *lst)
 		tmp = tmp->next;
 	}
 	printf("NULL\n");
+}
+
+void	display_tab(int *tab, int len)
+{
+	int	i;
+
+	i = 0;
+	while (i < len)
+		printf("%d ", tab[i++]);
+	printf("\n");
 }

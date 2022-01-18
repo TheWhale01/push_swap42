@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 12:20:13 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/17 11:18:58 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/18 14:23:52 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	check_sorted(t_list **stack)
 	t_list	*tmp;
 
 	tmp = *stack;
-	while (tmp->next)
+	while (tmp && tmp->next)
 	{
 		if (*(int *)tmp->content > *(int *)tmp->next->content)
 			return (0);
@@ -38,7 +38,7 @@ t_list	*stack_init(char **tab)
 
 	i = -1;
 	stack = NULL;
-	while (tab[++i])
+	while (tab && tab[++i])
 	{
 		nb = ft_atoll(tab[i]);
 		if (nb < INT_MIN || nb > INT_MAX)

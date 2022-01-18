@@ -6,68 +6,74 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 21:52:01 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/17 16:04:59 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/18 14:08:40 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "push_swap.h"
 
-int	ft_lstindex(t_list *stack, t_list *node)
+int	max(int n, int m)
 {
-	int		index;
-	t_list	*tmp;
-
-	tmp = stack;
-	index = 0;
-	while (tmp && *(int *)tmp->content != *(int *)node->content)
-	{
-		index++;
-		tmp = tmp->next;
-	}
-	return (index);
+	if (n > m)
+		return (n);
+	return (m);
 }
 
-t_list	*find_next(t_list *stack, void *content)
+int	is_in(int n, int *tab, int len)
 {
-	int		min;
-	t_list	*tmp;
-	t_list	*next;
+	int	i;
 
+	i = 0;
+	while (i < len)
+		if (tab[i++] == n)
+			return (1);
+	return (0);
+}
+
+void	get_lis(t_list *stack, int	*lis, int *len)
+{
+	int		i;
+	int		j;
+	int		k;
+	t_list	*tmp;
+
+	j = -1;
 	tmp = stack;
-	min = INT_MAX;
-	while (tmp)
+	while (tmp && ++j != -1)
 	{
-		if (*(int *)tmp->content > *(int *)content
-			&& *(int *)tmp->content - *(int *)content < min)
+		i = 0;
+		while (i != j)
 		{
-			min = *(int *)tmp->content - *(int *)content;
-			next = tmp;
+			k = (i + j) / 2;
+			if (lis[k] < *(int *)tmp->content)
+				i = k + 1;
+			else
+				j = k;
 		}
+		lis[i] = *(int *)tmp->content;
+		*len = max(i + 1, *len);
 		tmp = tmp->next;
 	}
-	return (next);
+	ft_lstclear(&stack, free);
 }
 
-t_list	*get_lis(t_list *stack)
+void	non_lis_to_b(t_list **a, t_list *tmp, t_list **b)
 {
-	int		index;
-	t_list	*tmp;
-	t_list	*lis;
+	int		len;
+	int		*lis;
 
-	lis = NULL;
-	tmp = stack->next;
-	ft_lstadd_back(&lis, ft_lstnew(stack->content, sizeof(stack->content)));
-	while (tmp)
+	len = 0;
+	lis = ft_calloc(ft_lstsize(*a), sizeof(int));
+	if (!lis)
+		return ;
+	get_lis(tmp, lis, &len);
+	while (ft_lstsize(*a) != len)
 	{
-		if (*(int *)ft_lstlast(lis)->content < *(int *)tmp->content)
-			ft_lstadd_back(&lis, ft_lstnew(tmp->content, sizeof(tmp->content)));
+		if (!is_in(*(int *)ft_lstlast(*a)->content, lis, len))
+			pb(a, b);
 		else
-		{
-			index = *(int *)(find_next(lis, tmp->content)) - *(int *)stack->content;
-			ft_lstreplace_index(lis, tmp, index);
-		}
-		tmp = tmp->next;
+			ra_b(a);
 	}
-	return (lis);
+	free(lis);
 }
