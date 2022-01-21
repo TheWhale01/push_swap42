@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 19:26:35 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/18 16:54:03 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/21 14:54:16 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,17 @@
 # define INT_MIN -2147483648
 # define INT_MAX 2147483647
 
+typedef struct s_pos
+{
+	int	pos_a;
+	int	pos_b;
+}	t_pos;
+
 int		tablen(char **tab);
 int		check_sorted(t_list **lst);
+int		find_index(t_list *node, t_list *stack);
+int		nb_moves_in_stack(t_list *node, t_list *stack);
+int		nb_moves_out_stack(t_list *node, t_list *stack);
 
 void	sa_b(t_list **stack);
 void	ra_b(t_list **stack);

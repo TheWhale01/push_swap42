@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 14:01:08 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/18 16:53:47 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/21 13:55:58 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,23 @@ void	*free_lst(t_list **lst)
 {
 	ft_lstclear(lst, free);
 	return (NULL);
+}
+
+int	find_index(t_list *node, t_list *stack)
+{
+	int		index;
+	t_list	*tmp;
+
+	index = 0;
+	tmp = stack;
+	while (tmp)
+	{
+		if (*(int *)node->content == *(int *)tmp->content)
+			return (index);
+		index++;
+		tmp = tmp->next;
+	}
+	return (-1);
 }
 
 /* ---- TO REMOVE ---- */
