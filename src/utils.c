@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 14:01:08 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/21 13:55:58 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/24 14:53:30 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,15 +50,21 @@ void	*free_lst(t_list **lst)
 
 int	find_index(t_list *node, t_list *stack)
 {
+	int		len;
 	int		index;
 	t_list	*tmp;
 
+	len = ft_lstsize(stack);
 	index = 0;
 	tmp = stack;
 	while (tmp)
 	{
-		if (*(int *)node->content == *(int *)tmp->content)
+		if (*(int *)tmp->content == *(int *)node->content)
+		{
+			if (index > len / 2)
+				return (len - index);
 			return (index);
+		}
 		index++;
 		tmp = tmp->next;
 	}
@@ -76,19 +82,6 @@ void	display_lst(t_list *lst)
 	{
 		printf("%d -> ", *(int *)tmp->content);
 		tmp = tmp->next;
-	}
-	printf("NULL\n");
-}
-
-void	display_lst_rev(t_list *lst)
-{
-	t_list	*tmp;
-
-	tmp = ft_lstlast(lst);
-	while (tmp)
-	{
-		printf("%d -> ", *(int *)tmp->content);
-		tmp = tmp->prev;
 	}
 	printf("NULL\n");
 }

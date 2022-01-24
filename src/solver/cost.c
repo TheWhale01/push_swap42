@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 14:39:15 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/21 15:15:12 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/24 14:50:07 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,60 +29,42 @@ t_list	*ft_lstmax(t_list *stack)
 	return (max);
 }
 
-int	between(int min, int max, int to_place, int rev)
+int	between(t_list *min, t_list *max, t_list *to_place, int rev)
 {
-	if (!rev && (to_place >= min && to_place <= max))
+	if (!rev && (*(int *)to_place->content > *(int *)min->content
+			&& *(int *)to_place->content < *(int *)max->content))
 		return (1);
-	else if (rev && (to_place >= max && to_place <= min))
+	else if (rev && (*(int *)to_place->content > *(int *)min->content
+			&& *(int *)to_place->content < *(int *)max->content))
 		return (1);
 	return (0);
 }
 
-int	nb_moves_in_stack(t_list *node, t_list *stack)
+int	nb_moves(t_list	*node, t_list *stack_a, t_list *stack_b)
 {
-	int		len;
+	int		rev;
+	int		tmp_index;
 	int		moves;
 	t_list	*tmp;
 
-	len = ft_lstsize(stack);
-	moves = 0;
-	tmp = stack;
-	while (tmp
-		&& *(int *)node->content != *(int *)tmp->content)
+	rev = 0;
+	tmp = stack_a;
+	tmp_index = find_index(node, stack_b);
+	moves = tmp_index + 1;
+	if (between(stack_a, ft_lstlast(stack_a), node, 0))
+		return (moves + 1);
+	while (tmp->next)
 	{
+		if (moves - tmp_index > ft_lstsize(stack_a) / 2)
+			rev = 1;
+		if (between(tmp, tmp->next, node, rev))
+		{
+			if (rev)
+				return (moves);
+			return (ft_lstsize(stack_a) - tmp_index);
+		}
 		moves++;
 		tmp = tmp->next;
 	}
-	if (moves <= len / 2)
-		return (moves);
-	else
-		return (len - moves);
-}
-
-int	nb_moves_out_stack(t_list *node, t_list *stack)
-{
-	int		rev;
-	int		len;
-	int		index;
-	t_list	*tmp;
-
-	rev = 0;
-	len = ft_lstsize(stack);
-	index = 0;
-	tmp = stack;
-	while (tmp->next)
-	{
-		if (index > len / 2)
-			rev = 1;
-		if (between(*(int *)tmp->content, *(int *)tmp->next->content,
-				*(int *)node->content, rev))
-		{
-			if (rev)
-				return (len - index);
-			return (index);
-		}
-		index++;
-		tmp = tmp->next;
-	}
-	return (find_index(ft_lstmax(stack), stack));
+	return (find_index(ft_lstmax(stack_a), stack_a));
 }

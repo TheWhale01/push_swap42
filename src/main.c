@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:42:45 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/21 14:54:34 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/24 15:59:11 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	main(int ac, char **av)
 	display_lst(a);
 	ft_printf("stack b : ");
 	display_lst(b);
-	ft_printf("cost : %d\n", nb_moves_out_stack(b, a));
 	ft_lstclear(&a, free);
 	ft_lstclear(&b, free);
 	return (0);

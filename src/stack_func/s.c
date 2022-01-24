@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 16:16:48 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/20 16:17:55 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/24 15:27:51 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void	sa_b(t_list **stack)
 	t_list	*pop1;
 	t_list	*pop2;
 
-	pop1 = pop_top(stack);
-	pop2 = pop_top(stack);
-	ft_lstadd_back(stack, pop1);
-	ft_lstadd_back(stack, pop2);
+	pop1 = pop_bottom(stack);
+	pop2 = pop_bottom(stack);
+	ft_lstadd_front(stack, pop1);
+	ft_lstadd_front(stack, pop2);
 }
 
 void	ss(t_list **a, t_list **b)

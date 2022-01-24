@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 21:52:01 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/21 13:29:42 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/24 15:55:14 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,11 @@ void	non_lis_to_b(t_list **a, t_list *tmp, t_list **b)
 	get_lis(tmp, lis, &len);
 	while (ft_lstsize(*a) != len)
 	{
-		if (!is_in(*(int *)ft_lstlast(*a)->content, lis, len))
+		if (!is_in(*(int *)(*a)->content, lis, len))
 			pb(a, b);
 		else
 			ra_b(a);
 	}
+	display_tab(lis, len);
 	free(lis);
 }
