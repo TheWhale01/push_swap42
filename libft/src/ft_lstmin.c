@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s.c                                                :+:      :+:    :+:   */
+/*   ft_lstmin.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/13 16:16:48 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/25 15:51:13 by hubretec         ###   ########.fr       */
+/*   Created: 2022/01/25 15:55:13 by hubretec          #+#    #+#             */
+/*   Updated: 2022/01/25 15:57:58 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	sa_b(t_list **stack, char *str)
+t_list	*ft_lstmin(t_list *lst)
 {
-	t_list	*pop1;
-	t_list	*pop2;
+	t_list	*min;
+	t_list	*tmp;
 
-	pop1 = pop_top(stack);
-	pop2 = pop_top(stack);
-	ft_lstadd_front(stack, pop1);
-	ft_lstadd_front(stack, pop2);
-	if (str)
-		ft_putendl_fd(str, STDOUT);
-}
-
-void	ss(t_list **a, t_list **b)
-{
-	sa_b(a, NULL);
-	sa_b(b, NULL);
-	ft_putendl_fd("ss", STDOUT);
+	min = lst;
+	tmp = lst;
+	while (tmp)
+	{
+		if (*(int *)tmp->content < *(int *)min->content)
+			min = tmp;
+		tmp = tmp->next;
+	}
+	return (min);
 }

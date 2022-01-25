@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 12:18:58 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/24 11:45:13 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/25 15:58:28 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int			ft_putchar_fd(char c, int fd);
 int			ft_printf(const char *s, ...);
 int			count_words(char const *s, char c);
 int			ft_putstr_fd(char const *s, int fd);
+int			ft_lstindex(t_list *node, t_list *lst);
 int			ft_memcmp(void *s1, void *s2, size_t n);
 int			ft_strcmp(const char *s1, const char *s2);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -87,6 +88,8 @@ size_t		ft_strlen(char const *str);
 size_t		ft_strlcat(char *dst, char *src, size_t size);
 size_t		ft_strlcpy(char *dest, char *src, size_t size);
 
+t_list		*ft_lstmax(t_list *lst);
+t_list		*ft_lstmin(t_list *lst);
 t_list		*ft_lstlast(t_list *lst);
 t_list		*ft_lstnew(void *content, size_t size);
 t_list		*ft_lstdup(t_list *lst, void (*del)(void *));

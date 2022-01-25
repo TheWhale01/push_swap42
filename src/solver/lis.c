@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 21:52:01 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/25 11:43:43 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/25 16:18:07 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,25 +55,49 @@ void	get_lis(t_list *stack, int	*lis, int *len)
 		*len = max(i + 1, *len);
 		tmp = tmp->next;
 	}
-	ft_lstclear(&stack, free);
 }
 
-void	non_lis_to_b(t_list **a, t_list *tmp, t_list **b)
+t_list	*push_min_top(t_list **stack)
+{
+	int		len;
+	int		index;
+	t_list	*tmp;
+
+	tmp = ft_lstdup(*stack, free);
+	if (!tmp)
+		return (free_lst(stack));
+	len = ft_lstsize(tmp);
+	index = ft_lstindex(ft_lstmin(*stack), *stack);
+	if (index >= 0 && index <= len / 2)
+		while (index--)
+			ra_b(&tmp, NULL);
+	else
+		while (index++ < len)
+			rra_b(&tmp, NULL);
+	if (check_sorted(&tmp))
+		return (free_lst(stack));
+	return (tmp);
+}
+
+void	non_lis_to_b(t_list **a, t_list **b)
 {
 	int		len;
 	int		*lis;
+	t_list	*tmp;
 
 	len = 0;
 	lis = ft_calloc(ft_lstsize(*a), sizeof(int));
 	if (!lis)
 		return ;
+	tmp = push_min_top(a);
 	get_lis(tmp, lis, &len);
+	ft_lstclear(&tmp, free);
 	while (ft_lstsize(*a) != len)
 	{
 		if (!is_in(*(int *)(*a)->content, lis, len))
-			pb(a, b);
+			pb(a, b, "pb");
 		else
-			ra_b(a);
+			ra_b(a, "ra");
 	}
 	free(lis);
 }

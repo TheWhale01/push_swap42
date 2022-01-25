@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:42:45 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/25 11:41:03 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/25 17:19:16 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ int	main(int ac, char **av)
 	a = stack_init(check(ac, av));
 	if (!a)
 		return (0);
-	non_lis_to_b(&a, push_min_top(&a), &b);
+	non_lis_to_b(&a, &b);
 	ft_printf("stack a : ");
 	display_lst(a);
 	ft_printf("stack b : ");
 	display_lst(b);
+	ft_printf("best : %d\n", *(int *)cost(a, b)->content);
 	ft_lstclear(&a, free);
 	ft_lstclear(&b, free);
 	return (0);

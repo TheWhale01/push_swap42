@@ -6,28 +6,12 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 14:39:15 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/24 14:50:07 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/25 17:29:40 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "push_swap.h"
-
-t_list	*ft_lstmax(t_list *stack)
-{
-	t_list	*max;
-	t_list	*tmp;
-
-	max = NULL;
-	tmp = stack;
-	while (tmp)
-	{
-		if (!max || (*(int *)max->content < *(int *)tmp->content))
-			max = tmp;
-		tmp = tmp->next;
-	}
-	return (max);
-}
 
 int	between(t_list *min, t_list *max, t_list *to_place, int rev)
 {
@@ -40,31 +24,57 @@ int	between(t_list *min, t_list *max, t_list *to_place, int rev)
 	return (0);
 }
 
-int	nb_moves(t_list	*node, t_list *stack_a, t_list *stack_b)
+int	optimize(int index, int len)
 {
+	if (index > len / 2)
+		return ((len - index) * -1);
+	return (index);
+}
+
+t_pos	get_pos(t_list *node, t_list *stack_a, t_list *stack_b)
+{
+	int		len;
 	int		rev;
-	int		tmp_index;
-	int		moves;
+	int		index;
+	t_pos	pos;
 	t_list	*tmp;
 
-	rev = 0;
+	len = ft_lstsize(stack_a);
+	pos.stack_a = 0;
+	pos.stack_b = 0;
 	tmp = stack_a;
-	tmp_index = find_index(node, stack_b);
-	moves = tmp_index + 1;
-	if (between(stack_a, ft_lstlast(stack_a), node, 0))
-		return (moves + 1);
 	while (tmp->next)
 	{
-		if (moves - tmp_index > ft_lstsize(stack_a) / 2)
+		if (!rev && index > len / 2)
 			rev = 1;
 		if (between(tmp, tmp->next, node, rev))
-		{
-			if (rev)
-				return (moves);
-			return (ft_lstsize(stack_a) - tmp_index);
-		}
-		moves++;
+			pos.stack_a = optimize(index + 1, len);
+		index++;
 		tmp = tmp->next;
 	}
-	return (find_index(ft_lstmax(stack_a), stack_a));
+	pos.stack_b = optimize(ft_lstindex(node, stack_b), ft_lstsize(stack_b));
+	return (pos);
+}
+
+t_list	*cost(t_list *stack_a, t_list *stack_b)
+{
+	int		min_pos;
+	t_pos	pos;
+	t_list	*tmp;
+	t_list	*min;
+
+	min = NULL;
+	tmp = stack_b;
+	while (tmp)
+	{
+		pos = get_pos(tmp, stack_a, stack_b);
+		if (!min || abs(pos.stack_a) + abs(pos.stack_b) < min_pos)
+		{
+			min_pos = abs(pos.stack_a) + abs(pos.stack_b);
+			min = tmp;
+		}
+		tmp = tmp->next;
+	}
+	ft_printf("pos.stack_a : %d\npos.stack_b : %d\n", pos.stack_a, pos.stack_b);
+	return (min);
 }

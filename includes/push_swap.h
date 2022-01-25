@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 19:26:35 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/24 14:35:40 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/25 17:19:08 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,25 +24,24 @@
 
 typedef struct s_pos
 {
-	int	pos_a;
-	int	pos_b;
+	int	stack_a;
+	int	stack_b;
 }	t_pos;
 
+int		abs(int n);
 int		tablen(char **tab);
 int		check_sorted(t_list **lst);
-int		find_index(t_list *node, t_list *stack);
-int		nb_moves(t_list *node, t_list *stack_a, t_list *stack_b);
 
-void	sa_b(t_list **stack);
-void	ra_b(t_list **stack);
-void	rra_b(t_list **stack);
+void	sa_b(t_list **stack, char *str);
+void	ra_b(t_list **stack, char *str);
+void	rra_b(t_list **stack, char *str);
+void	pa(t_list **a, t_list **b, char *str);
+void	pb(t_list **a, t_list **b, char *str);
 void	rr(t_list **a, t_list **b);
-void	pa(t_list **a, t_list **b);
-void	pb(t_list **a, t_list **b);
 void	ss(t_list **a, t_list **b);
 void	rrr(t_list **a, t_list **b);
 void	exit_with_msg(char *str, char **tab);
-void	non_lis_to_b(t_list **a, t_list *tmp, t_list **b);
+void	non_lis_to_b(t_list **a, t_list **b);
 
 void	*free_tab(char **tab);
 void	*free_lst(t_list **lst);
@@ -50,14 +49,12 @@ void	*free_lst(t_list **lst);
 t_list	*stack_init(char **tab);
 t_list	*pop_top(t_list **stack);
 t_list	*pop_bottom(t_list	**stack);
-t_list	*push_min_top(t_list **stack);
+t_list	*cost(t_list *stack_a, t_list *stack_b);
 
 char	**check(int ac, char **av);
 
 /* ---- TO REMOVE ---- */
 
 void	display_lst(t_list *stack);
-void	display_tab(int *tab, int len);
-void	display_lst_rev(t_list *lst);
 
 #endif

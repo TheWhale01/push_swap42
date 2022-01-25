@@ -6,24 +6,26 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 16:23:33 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/25 11:40:33 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/25 15:53:32 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_list **a, t_list **b)
+void	pa(t_list **a, t_list **b, char *str)
 {
 	if (!*b)
 		return ;
 	ft_lstadd_front(a, pop_top(b));
-	ft_putstr("pa\n");
+	if (str)
+		ft_putendl_fd(str, STDOUT);
 }
 
-void	pb(t_list **a, t_list **b)
+void	pb(t_list **a, t_list **b, char *str)
 {
 	if (!*a)
 		return ;
 	ft_lstadd_front(b, pop_top(a));
-	ft_putstr("pb\n");
+	if (str)
+		ft_putendl_fd(str, STDOUT);
 }

@@ -6,34 +6,36 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 16:28:07 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/25 11:11:12 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/25 15:51:57 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra_b(t_list **stack)
+void	ra_b(t_list **stack, char *str)
 {
 	ft_lstadd_back(stack, pop_top(stack));
-	ft_putstr("ra\n");
+	if (str)
+		ft_putendl_fd(str, STDOUT);
 }
 
 void	rr(t_list **a, t_list **b)
 {
-	ra_b(a);
-	ra_b(b);
-	ft_putstr("rr\n");
+	ra_b(a, NULL);
+	ra_b(b, NULL);
+	ft_putendl_fd("rr", STDOUT);
 }
 
-void	rra_b(t_list **stack)
+void	rra_b(t_list **stack, char *str)
 {
 	ft_lstadd_front(stack, pop_bottom(stack));
-	ft_putstr("rra\n");
+	if (str)
+		ft_putendl_fd(str, STDOUT);
 }
 
 void	rrr(t_list **a, t_list **b)
 {
-	rra_b(a);
-	rra_b(b);
-	ft_putstr("rrr\n");
+	rra_b(a, NULL);
+	rra_b(b, NULL);
+	ft_putendl_fd("rrr", STDOUT);
 }

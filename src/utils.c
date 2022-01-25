@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 14:01:08 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/24 14:53:30 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/25 16:31:08 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@ int	tablen(char **tab)
 	while (tab && tab[i])
 		i++;
 	return (i);
+}
+
+int	abs(int n)
+{
+	if (n < 0)
+		return (n * -1);
+	return (n);
 }
 
 void	exit_with_msg(char *str, char **tab)
@@ -48,29 +55,6 @@ void	*free_lst(t_list **lst)
 	return (NULL);
 }
 
-int	find_index(t_list *node, t_list *stack)
-{
-	int		len;
-	int		index;
-	t_list	*tmp;
-
-	len = ft_lstsize(stack);
-	index = 0;
-	tmp = stack;
-	while (tmp)
-	{
-		if (*(int *)tmp->content == *(int *)node->content)
-		{
-			if (index > len / 2)
-				return (len - index);
-			return (index);
-		}
-		index++;
-		tmp = tmp->next;
-	}
-	return (-1);
-}
-
 /* ---- TO REMOVE ---- */
 
 void	display_lst(t_list *lst)
@@ -84,14 +68,4 @@ void	display_lst(t_list *lst)
 		tmp = tmp->next;
 	}
 	printf("NULL\n");
-}
-
-void	display_tab(int *tab, int len)
-{
-	int	i;
-
-	i = 0;
-	while (i < len)
-		printf("%d ", tab[i++]);
-	printf("\n");
 }
