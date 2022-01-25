@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 21:52:01 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/24 15:55:14 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/25 11:43:43 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,5 @@ void	non_lis_to_b(t_list **a, t_list *tmp, t_list **b)
 		else
 			ra_b(a);
 	}
-	display_tab(lis, len);
 	free(lis);
 }
