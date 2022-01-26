@@ -1,0 +1,5 @@
+bin/
+obj/
+*.pdf
+libft/obj/
+libft/bin/
