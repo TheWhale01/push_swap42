@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 14:39:26 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/26 17:54:33 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/26 20:17:50 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,5 @@ void	solve(t_list **stack_a, t_list **stack_b)
 	{
 		cost(&pos, *stack_a, *stack_b);
 		place_in_stack(&pos, stack_a, stack_b);
-		ft_printf("stack : ");
-		display_lst(*stack_a);
-		ft_printf("stack_b : ");
-		display_lst(*stack_b);
 	}
 }

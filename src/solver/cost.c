@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 14:39:15 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/26 16:30:05 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/26 20:27:07 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ t_pos	get_pos(t_list *node, t_list *stack_a, t_list *stack_b)
 	return (special(stack_a, stack_b, node));
 }
 
+// Wrong pos for 4
 t_list	*cost(t_pos *pos, t_list *stack_a, t_list *stack_b)
 {
 	int		min_pos;
@@ -94,6 +95,7 @@ t_list	*cost(t_pos *pos, t_list *stack_a, t_list *stack_b)
 			min = tmp;
 			*pos = tmp_pos;
 		}
+		ft_printf("node : %d\npos.stack_a : %d\npos.stack_b : %d\n\n", *(int *)tmp->content, pos->stack_a, pos->stack_b);
 		tmp = tmp->next;
 	}
 	return (min);

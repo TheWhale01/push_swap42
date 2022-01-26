@@ -35,7 +35,7 @@ $(NAME_CHECKER): $(OBJS_CHECKER)
 
 all: $(NAME_PUSH_SWAP)
 
-checker: $(NAME) $(NAME_CHECKER)
+checker: $(NAME_PUSH_SWAP) $(NAME_CHECKER)
 
 debug: CFLAGS=-Wall -Wextra -Werror -I $(INCLUDES) -g
 debug: $(NAME_PUSH_SWAP)
@@ -52,8 +52,10 @@ sanitize: $(NAME_PUSH_SWAP)
 
 re: fclean all
 
+re_checker: fclean checker
+
 re_debug: fclean debug
 
 re_sanitize: fclean sanitize
 
-.PHONY: all debug clean fclean sanitize re_debug re_sanitize
+.PHONY: all checker debug clean fclean sanitize re_checker re_debug re_sanitize
