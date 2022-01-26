@@ -6,19 +6,12 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 21:52:01 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/25 16:18:07 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/26 14:56:09 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "push_swap.h"
-
-int	max(int n, int m)
-{
-	if (n > m)
-		return (n);
-	return (m);
-}
 
 int	is_in(int n, int *tab, int len)
 {
@@ -52,7 +45,7 @@ void	get_lis(t_list *stack, int	*lis, int *len)
 				j = k;
 		}
 		lis[i] = *(int *)tmp->content;
-		*len = max(i + 1, *len);
+		*len = ft_max(i + 1, *len);
 		tmp = tmp->next;
 	}
 }

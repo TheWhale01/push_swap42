@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 12:18:58 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/25 15:58:28 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/26 14:54:51 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int			ft_isascii(int c);
 int			ft_isdigit(int c);
 int			ft_isprint(int c);
 int			ft_putchar(char c);
+int			ft_min(int n, int m);
+int			ft_max(int n, int m);
 int			ft_putstr(char *str);
 int			ft_lstsize(t_list *lst);
 int			ft_atoi(const char *nptr);

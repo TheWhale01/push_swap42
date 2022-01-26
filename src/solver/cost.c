@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 14:39:15 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/26 14:18:02 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/26 16:30:05 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,10 @@ t_pos	get_pos(t_list *node, t_list *stack_a, t_list *stack_b)
 	return (special(stack_a, stack_b, node));
 }
 
-t_list	*cost(t_list *stack_a, t_list *stack_b)
+t_list	*cost(t_pos *pos, t_list *stack_a, t_list *stack_b)
 {
 	int		min_pos;
-	t_pos	pos;
+	t_pos	tmp_pos;
 	t_list	*tmp;
 	t_list	*min;
 
@@ -87,11 +87,12 @@ t_list	*cost(t_list *stack_a, t_list *stack_b)
 	tmp = stack_b;
 	while (tmp)
 	{
-		pos = get_pos(tmp, stack_a, stack_b);
-		if (!min || abs(pos.stack_a) + abs(pos.stack_b) <= min_pos)
+		tmp_pos = get_pos(tmp, stack_a, stack_b);
+		if (!min || abs(tmp_pos.stack_a) + abs(tmp_pos.stack_b) <= min_pos)
 		{
-			min_pos = abs(pos.stack_a) + abs(pos.stack_b);
+			min_pos = abs(tmp_pos.stack_a) + abs(tmp_pos.stack_b);
 			min = tmp;
+			*pos = tmp_pos;
 		}
 		tmp = tmp->next;
 	}
