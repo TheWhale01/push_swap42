@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 19:26:35 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/26 16:30:59 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/26 17:47:27 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ typedef struct s_pos
 int		abs(int n);
 int		tablen(char **tab);
 int		check_sorted(t_list **lst);
-int		smart_rotate(t_pos pos, t_list **stack_a, t_list **stack_b);
 
 void	rr(t_list **a, t_list **b);
 void	ss(t_list **a, t_list **b);
@@ -43,6 +42,7 @@ void	exit_with_msg(char *str, char **tab);
 void	non_lis_to_b(t_list **a, t_list **b);
 void	pa(t_list **a, t_list **b, char *str);
 void	pb(t_list **a, t_list **b, char *str);
+void	solve(t_list **stack_a, t_list **stack_b);
 
 void	*free_tab(char **tab);
 void	*free_lst(t_list **lst);
