@@ -6,14 +6,19 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 18:50:55 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/26 18:51:33 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/27 22:54:43 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	main(void)
+int	main(int ac, char **av)
 {
-	ft_printf("Hello, World!\n");
+	t_list	*a;
+
+	a = stack_init(check(ac, av));
+	if (!a)
+		return (0);
+	ft_printf("lol\n");
 	return (0);
 }

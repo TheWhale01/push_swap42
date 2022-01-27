@@ -1,18 +1,24 @@
 CC=gcc
 BIN_DIR=bin/
-OBJ_DIR=obj/
-SRC_DIR=src/
-CHECKER_OBJ_DIR=obj/checker/
-CHECKER_SRC_DIR=src/checker/
 LIBFT_DIR=libft/
 INCLUDES=includes/
+COMMON_DIR=../common/
 CFLAGS=-Wall -Wextra -Werror -I $(INCLUDES)
-CFILES_PUSH_SWAP=$(addprefix $(SRC_DIR), main.c check.c stack.c utils.c stack_func/pop.c stack_func/s.c stack_func/p.c stack_func/r.c \
+
+#push_swap files
+SRC_DIR=src/push_swap/
+OBJ_DIR=obj/push_swap/
+CFILES_PUSH_SWAP=$(addprefix $(SRC_DIR), main.c $(COMMON_DIR)check.c $(COMMON_DIR)stack.c $(COMMON_DIR)utils.c \
+stack_func/pop.c stack_func/s.c stack_func/p.c stack_func/r.c \
 solver/solver.c solver/lis.c solver/cost.c)
-CFILES_CHECKER=$(addprefix $(CHECKER_SRC_DIR), main.c)
 OBJS=$(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(CFILES_PUSH_SWAP))
-OBJS_CHECKER=$(patsubst $(CHECKER_SRC_DIR)%.c, $(CHECKER_OBJ_DIR)%.o, $(CFILES_CHECKER))
 NAME_PUSH_SWAP=$(BIN_DIR)push_swap
+
+#checker files
+CHECKER_SRC_DIR=src/checker/
+CHECKER_OBJ_DIR=obj/checker/
+CFILES_CHECKER=$(addprefix $(CHECKER_SRC_DIR), main.c $(COMMON_DIR)check.c $(COMMON_DIR)stack.c $(COMMON_DIR)utils.c)
+OBJS_CHECKER=$(patsubst $(CHECKER_SRC_DIR)%.c, $(CHECKER_OBJ_DIR)%.o, $(CFILES_CHECKER))
 NAME_CHECKER=$(BIN_DIR)checker
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
