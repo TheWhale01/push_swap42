@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:42:45 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/27 21:38:37 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/27 22:19:38 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int ac, char **av)
 	if (!a)
 		return (0);
 	solve(&a, &b);
-	display_lst(a);
+	//display_lst(a);
 	ft_lstclear(&a, free);
 	ft_lstclear(&b, free);
 	return (0);
