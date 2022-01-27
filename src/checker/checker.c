@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   r.c                                                :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/13 16:28:07 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/27 23:25:33 by hubretec         ###   ########.fr       */
+/*   Created: 2022/01/27 23:10:10 by hubretec          #+#    #+#             */
+/*   Updated: 2022/01/27 23:22:14 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_list **stack, t_list **none, char *str)
+void	init_tab(void (*tab[11])(t_list **, t_list **, char *))
 {
-	(void)none;
-	ft_lstadd_back(stack, pop_top(stack));
-	if (str)
-		ft_putendl_fd(str, STDOUT);
-}
-
-void	rb(t_list **stack, t_list **none, char *str)
-{
-	(void)none;
-	ft_lstadd_back(stack, pop_top(stack));
-	if (str)
-		ft_putendl_fd(str, STDOUT);
-}
-
-void	rr(t_list **a, t_list **b, char *str)
-{
-	ra_b(a, NULL, NULL);
-	ra_b(b, NULL, NULL);
-	ft_putendl_fd("rr", STDOUT);
+	tab[0] = sa;
+	tab[1] = sb;
+	tab[2] = ss;
+	tab[3] = pa;
+	tab[4] = pb;
+	tab[5] = ra;
+	tab[6] = rb;
+	tab[7] = rr;
+	tab[8] = rra;
+	tab[9] = rrb;
+	tab[10] = rrr;
 }
