@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 14:39:26 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/26 20:17:50 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/27 21:39:14 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,27 @@ void	place_in_stack(t_pos *pos, t_list **stack_a, t_list **stack_b)
 	pa(stack_a, stack_b, "pa");
 }
 
-//	Problem in cost()
 void	solve(t_list **stack_a, t_list **stack_b)
 {
+	int		len;
+	int		index;
 	t_pos	pos;
 
 	non_lis_to_b(stack_a, stack_b);
-	ft_printf("---------------\n");
 	while (*stack_b)
 	{
 		cost(&pos, *stack_a, *stack_b);
 		place_in_stack(&pos, stack_a, stack_b);
+	}
+	index = ft_lstindex(ft_lstmin(*stack_a), *stack_a);
+	if (index)
+	{
+		len = ft_lstsize(*stack_a);
+		if (index <= len / 2)
+			while (index--)
+				ra_b(stack_a, "ra");
+		else
+			while (index++ < len)
+				rra_b(stack_a, "rra");
 	}
 }
