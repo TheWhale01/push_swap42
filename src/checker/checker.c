@@ -6,23 +6,20 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 23:10:10 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/27 23:22:14 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/27 23:34:31 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	init_tab(void (*tab[11])(t_list **, t_list **, char *))
+void	init_tab(void (*tab[8])(t_list **, t_list **, char *))
 {
-	tab[0] = sa;
-	tab[1] = sb;
-	tab[2] = ss;
-	tab[3] = pa;
-	tab[4] = pb;
-	tab[5] = ra;
-	tab[6] = rb;
-	tab[7] = rr;
-	tab[8] = rra;
-	tab[9] = rrb;
-	tab[10] = rrr;
+	tab[0] = sa_b;
+	tab[1] = pa;
+	tab[2] = pb;
+	tab[3] = ra_b;
+	tab[4] = ra_b;
+	tab[5] = rr;
+	tab[6] = rra_b;
+	tab[7] = rrr;
 }
