@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:42:45 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/30 19:42:24 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/30 20:57:13 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,7 @@ int	main(int ac, char **av)
 	a = stack_init(check(ac, av));
 	if (!a)
 		return (0);
-	push_to_b(&a, &b);
-	ft_printf("stack a : ");
-	display_lst(a);
-	ft_printf("stack b : ");
-	display_lst(b);
+	solve(&a, &b);
 	ft_lstclear(&a, free);
 	ft_lstclear(&b, free);
 	return (0);

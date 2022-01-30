@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 14:39:26 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/30 19:26:22 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/30 20:54:55 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	solve(t_list **stack_a, t_list **stack_b)
 	int		index;
 	t_pos	pos;
 
-	//push_to_b(stack_a, stack_b);
+	push_to_b(stack_a, stack_b);
 	while (*stack_b)
 	{
 		cost(&pos, *stack_a, *stack_b);
