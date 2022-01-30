@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 12:18:58 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/28 18:08:50 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/30 20:09:42 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+int			abs(int n);
 int			ft_tolower(int c);
 int			ft_toupper(int c);
 int			ft_isalnum(int c);

@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 14:39:26 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/28 18:11:21 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/30 19:26:22 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	place_in_stack(t_pos *pos, t_list **stack_a, t_list **stack_b)
 		ra_b(stack_b, "rb");
 	while (++pos->stack_b < 0)
 		rra_b(stack_b, "rrb");
-	pa(stack_a, stack_b, "pa");
+	pa(stack_a, stack_b);
 }
 
 void	solve(t_list **stack_a, t_list **stack_b)

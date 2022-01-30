@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 14:01:08 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/28 17:41:49 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/30 20:26:27 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,6 @@ int	tablen(char **tab)
 	while (tab && tab[i])
 		i++;
 	return (i);
-}
-
-int	abs(int n)
-{
-	if (n < 0)
-		return (n * -1);
-	return (n);
 }
 
 void	exit_with_msg(char *str, char **tab)

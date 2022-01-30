@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 21:52:01 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/30 15:25:08 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/30 20:50:01 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,25 @@ t_list	*pre_sort(t_list *stack_a)
 
 void	push_to_b(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*tmp;
+	int		len;
+	int		index;
 	t_list	*med;
 	t_list	*sorted;
 
-	(void)stack_b;
+	len = ft_lstsize(*stack_a);
+	index = 0;
 	sorted = pre_sort(*stack_a);
 	med = ft_lst_find_at_index(sorted, ft_lstsize(sorted) / 2);
+	ft_printf("med : %d\n", *(int *)med->content);
+	while (*stack_a)
+	{
+		while (*(int *)(*stack_a)->content < *(int *)med->content
+			&& index <= len / 2)
+		{
+			ra_b(stack_a, "ra");
+			index++;
+		}
+		pb(stack_a, stack_b);
+	}
 	ft_lstclear(&sorted, free);
 }

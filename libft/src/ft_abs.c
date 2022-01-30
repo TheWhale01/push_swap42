@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 11:42:45 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/30 19:42:24 by hubretec         ###   ########.fr       */
+/*   Created: 2022/01/30 20:09:28 by hubretec          #+#    #+#             */
+/*   Updated: 2022/01/30 20:09:47 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "push_swap.h"
-
-int	main(int ac, char **av)
+int	abs(int n)
 {
-	t_list	*a;
-	t_list	*b;
-
-	b = NULL;
-	a = stack_init(check(ac, av));
-	if (!a)
-		return (0);
-	push_to_b(&a, &b);
-	ft_printf("stack a : ");
-	display_lst(a);
-	ft_printf("stack b : ");
-	display_lst(b);
-	ft_lstclear(&a, free);
-	ft_lstclear(&b, free);
-	return (0);
+	if (n < 0)
+		return (n * -1);
+	return (n);
 }
