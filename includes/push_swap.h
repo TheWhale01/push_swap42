@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 19:26:35 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/27 23:34:42 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/01/30 14:41:07 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ void	sa_b(t_list **stack, char *str);
 void	ra_b(t_list **stack, char *str);
 void	rra_b(t_list **stack, char *str);
 void	exit_with_msg(char *str, char **tab);
-void	non_lis_to_b(t_list **a, t_list **b);
 void	pa(t_list **a, t_list **b, char *str);
 void	pb(t_list **a, t_list **b, char *str);
 void	solve(t_list **stack_a, t_list **stack_b);
+void	push_to_b(t_list **stack_a, t_list **stack_b);
 
 void	*free_tab(char **tab);
 void	*free_lst(t_list **lst);
@@ -57,5 +57,6 @@ char	**check(int ac, char **av);
 /* ---- TO REMOVE ---- */
 
 void	display_lst(t_list *stack);
+void	display_tab(int *tab, int len);
 
 #endif

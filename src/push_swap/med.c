@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   med.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 11:42:45 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/30 14:53:16 by hubretec         ###   ########.fr       */
+/*   Created: 2022/01/13 21:52:01 by hubretec          #+#    #+#             */
+/*   Updated: 2022/01/30 15:25:08 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+t_list	*pre_sort(t_list *stack_a)
 {
-	t_list	*a;
-	t_list	*b;
+	t_list	*dup;
+	t_list	*sorted;
 
-	b = NULL;
-	a = stack_init(check(ac, av));
-	if (!a)
-		return (0);
-	push_to_b(&a, &b);
-	ft_printf("stack a : ");
-	display_lst(a);
-	ft_printf("stack b : ");
-	display_lst(b);
-	ft_lstclear(&a, free);
-	ft_lstclear(&b, free);
-	return (0);
+	dup = ft_lstdup(stack_a, free);
+	sorted = NULL;
+	while (dup)
+		ft_lstadd_back(&sorted, ft_lstpop(&dup, ft_lstmin(dup)));
+	return (sorted);
+}
+
+void	push_to_b(t_list **stack_a, t_list **stack_b)
+{
+	t_list	*tmp;
+	t_list	*med;
+	t_list	*sorted;
+
+	(void)stack_b;
+	sorted = pre_sort(*stack_a);
+	med = ft_lst_find_at_index(sorted, ft_lstsize(sorted) / 2);
+	ft_lstclear(&sorted, free);
 }

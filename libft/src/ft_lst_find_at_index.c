@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lst_find_at_index.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 11:42:45 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/30 14:53:16 by hubretec         ###   ########.fr       */
+/*   Created: 2022/01/28 12:15:37 by hubretec          #+#    #+#             */
+/*   Updated: 2022/01/28 18:34:37 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+t_list	*ft_lst_find_at_index(t_list *lst, int index)
 {
-	t_list	*a;
-	t_list	*b;
+	int		i;
+	t_list	*tmp;
 
-	b = NULL;
-	a = stack_init(check(ac, av));
-	if (!a)
-		return (0);
-	push_to_b(&a, &b);
-	ft_printf("stack a : ");
-	display_lst(a);
-	ft_printf("stack b : ");
-	display_lst(b);
-	ft_lstclear(&a, free);
-	ft_lstclear(&b, free);
-	return (0);
+	i = -1;
+	tmp = lst;
+	while (tmp && ++i < index)
+		tmp = tmp->next;
+	return (tmp);
 }
