@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 14:01:08 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/30 20:26:27 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/02/01 14:13:04 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,29 +46,4 @@ void	*free_lst(t_list **lst)
 {
 	ft_lstclear(lst, free);
 	return (NULL);
-}
-
-/* ---- TO REMOVE ---- */
-
-void	display_lst(t_list *lst)
-{
-	t_list	*tmp;
-
-	tmp = lst;
-	while (tmp)
-	{
-		printf("%d -> ", *(int *)tmp->content);
-		tmp = tmp->next;
-	}
-	printf("NULL\n");
-}
-
-void	display_tab(int *tab, int len)
-{
-	int	i;
-
-	i = -1;
-	while (++i < len)
-		printf("%d ", tab[i]);
-	printf("\n");
 }

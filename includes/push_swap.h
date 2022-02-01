@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 19:26:35 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/31 15:40:59 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/02/01 14:12:53 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,5 @@ t_list	*pop_bottom(t_list	**stack);
 t_list	*cost(t_pos *pos, t_list *stack_a, t_list *stack_b);
 
 char	**check(int ac, char **av);
-
-/* ---- TO REMOVE ---- */
-
-int		optimize(int index, int len);
-t_pos	get_pos(t_list *node, t_list *stack_a, t_list *stack_b);
-
-void	display_lst(t_list *stack);
-void	display_tab(int *tab, int len);
 
 #endif
