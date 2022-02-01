@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   p.c                                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/26 18:50:55 by hubretec          #+#    #+#             */
-/*   Updated: 2022/02/01 19:34:40 by hubretec         ###   ########.fr       */
+/*   Created: 2022/02/01 18:46:53 by hubretec          #+#    #+#             */
+/*   Updated: 2022/02/01 19:36:26 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "checker.h"
 
-int	main(int ac, char **av)
+void	pa(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*a;
-	t_list	*b;
+	if (!*stack_b)
+		return ;
+	ft_lstadd_front(stack_a, pop_top(stack_b));
+}
 
-	b = NULL;
-	a = stack_init(check(ac, av));
-	if (!a)
-		return (0);
-	if (checker(&a, &b))
-		ft_putendl_fd("OK", STDOUT);
-	else
-		ft_putendl_fd("KO", STDOUT);
-	ft_lstclear(&a, free);
-	ft_lstclear(&b, free);
-	return (0);
+void	pb(t_list **stack_a, t_list **stack_b)
+{
+	if (!*stack_a)
+		return ;
+	ft_lstadd_front(stack_b, pop_top(stack_a));
 }

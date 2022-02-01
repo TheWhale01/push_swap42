@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 12:18:58 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/30 20:09:42 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/02/01 19:43:54 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,12 @@
 #  define BUFFER_SIZE 128
 # endif
 
+# define STDIN 0
+# define STDOUT 1
+# define STDERR 2
 # define MAX_FD 256
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
 # define DEC_BASE "0123456789"
 # define HEX_BASE "0123456789abcdef"
 # define HEX_BASE_M "0123456789ABCDEF"

@@ -18,8 +18,9 @@ NAME_PUSH_SWAP=$(BIN_DIR)push_swap
 #checker files
 CHECKER_SRC_DIR=src/checker/
 CHECKER_OBJ_DIR=obj/checker/
-CFILES_CHECKER=$(addprefix $(CHECKER_SRC_DIR), main.c $(COMMON_DIR)check.c \
-$(COMMON_DIR)stack.c $(COMMON_DIR)utils.c $(COMMON_DIR)pop.c)
+CFILES_CHECKER=$(addprefix $(CHECKER_SRC_DIR), main.c checker.c stack/s.c stack/p.c \
+stack/r.c stack/rr.c $(COMMON_DIR)check.c $(COMMON_DIR)stack.c $(COMMON_DIR)utils.c \
+$(COMMON_DIR)pop.c)
 OBJS_CHECKER=$(patsubst $(CHECKER_SRC_DIR)%.c, $(CHECKER_OBJ_DIR)%.o, $(CFILES_CHECKER))
 NAME_CHECKER=$(BIN_DIR)checker
 

@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   rr.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/26 18:50:55 by hubretec          #+#    #+#             */
-/*   Updated: 2022/02/01 19:34:40 by hubretec         ###   ########.fr       */
+/*   Created: 2022/02/01 18:54:26 by hubretec          #+#    #+#             */
+/*   Updated: 2022/02/01 19:36:40 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "checker.h"
 
-int	main(int ac, char **av)
+void	rra(t_list **stack_a, t_list **none)
 {
-	t_list	*a;
-	t_list	*b;
+	(void)none;
+	ft_lstadd_front(stack_a, pop_bottom(stack_a));
+}
 
-	b = NULL;
-	a = stack_init(check(ac, av));
-	if (!a)
-		return (0);
-	if (checker(&a, &b))
-		ft_putendl_fd("OK", STDOUT);
-	else
-		ft_putendl_fd("KO", STDOUT);
-	ft_lstclear(&a, free);
-	ft_lstclear(&b, free);
-	return (0);
+void	rrb(t_list **none, t_list **stack_b)
+{
+	(void)none;
+	ft_lstadd_front(stack_b, pop_bottom(stack_b));
+}
+
+void	rrr(t_list **stack_a, t_list **stack_b)
+{
+	rra(stack_a, stack_b);
+	rrb(stack_b, stack_a);
 }
