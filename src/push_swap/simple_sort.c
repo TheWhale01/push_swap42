@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 14:36:09 by hubretec          #+#    #+#             */
-/*   Updated: 2022/02/01 15:49:09 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/02/01 20:25:28 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ int	sort_four(t_list **stack_a, t_list **stack_b)
 	else
 		while (index++ < len)
 			rra_b(stack_a, "rra");
-	pb(stack_a, stack_b);
+	pb(stack_a, stack_b, "pb");
 	sort_three(stack_a);
-	pa(stack_a, stack_b);
+	pa(stack_a, stack_b, "pa");
 	return (1);
 }
 
@@ -66,9 +66,9 @@ int	sort_five(t_list **stack_a, t_list **stack_b)
 	else
 		while (index++ < len)
 			rra_b(stack_a, "rra");
-	pb(stack_a, stack_b);
+	pb(stack_a, stack_b, "pb");
 	sort_four(stack_a, stack_b);
-	pa(stack_a, stack_b);
+	pa(stack_a, stack_b, "pb");
 	return (1);
 }
 

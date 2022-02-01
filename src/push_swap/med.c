@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 21:52:01 by hubretec          #+#    #+#             */
-/*   Updated: 2022/02/01 13:50:24 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/02/01 20:24:44 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	push_to_b(t_list **stack_a, t_list **stack_b)
 			ra_b(stack_a, "ra");
 			index++;
 		}
-		pb(stack_a, stack_b);
+		pb(stack_a, stack_b, "pb");
 	}
 	ft_lstclear(&sorted, free);
 }

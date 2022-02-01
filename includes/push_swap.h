@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 19:26:35 by hubretec          #+#    #+#             */
-/*   Updated: 2022/02/01 14:39:57 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/02/01 20:22:42 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,18 @@ typedef struct s_pos
 
 int		tablen(char **tab);
 int		check_sorted(t_list **lst);
+int		checker(t_list **stack_a, t_list **stack_b);
 int		simple_sort(t_list **stack_a, t_list **stack_b);
 
-void	pa(t_list **a, t_list **b);
-void	pb(t_list **a, t_list **b);
-void	rr(t_list **a, t_list **b);
-void	ss(t_list **a, t_list **b);
-void	rrr(t_list **a, t_list **b);
 void	sa_b(t_list **stack, char *str);
 void	ra_b(t_list **stack, char *str);
 void	rra_b(t_list **stack, char *str);
 void	exit_with_msg(char *str, char **tab);
+void	pa(t_list **a, t_list **b, char *str);
+void	pb(t_list **a, t_list **b, char *str);
+void	rr(t_list **a, t_list **b, char *str);
+void	ss(t_list **a, t_list **b, char *str);
+void	rrr(t_list **a, t_list **b, char *str);
 void	solve(t_list **stack_a, t_list **stack_b);
 void	push_to_b(t_list **stack_a, t_list **stack_b);
 

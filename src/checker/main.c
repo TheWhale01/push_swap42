@@ -6,12 +6,12 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 18:50:55 by hubretec          #+#    #+#             */
-/*   Updated: 2022/02/01 19:34:40 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/02/01 20:15:11 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "checker.h"
+#include "push_swap.h"
 
 int	main(int ac, char **av)
 {

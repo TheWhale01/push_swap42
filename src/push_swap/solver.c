@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 14:39:26 by hubretec          #+#    #+#             */
-/*   Updated: 2022/02/01 13:25:00 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/02/01 20:26:04 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ void	smart_rotate(t_pos *pos, t_list **stack_a, t_list **stack_b)
 		return ;
 	while (pos->stack_a > 0 && pos->stack_b > 0)
 	{
-		rr(stack_a, stack_b);
+		rr(stack_a, stack_b, "rr");
 		pos->stack_a--;
 		pos->stack_b--;
 	}
 	while (pos->stack_a < 0 && pos->stack_b < 0)
 	{
-		rrr(stack_a, stack_b);
+		rrr(stack_a, stack_b, "rrr");
 		pos->stack_a++;
 		pos->stack_b++;
 	}
@@ -37,7 +37,7 @@ void	place_in_stack(t_pos *pos, t_list **stack_a, t_list **stack_b)
 	len = ft_lstsize(*stack_a);
 	smart_rotate(pos, stack_a, stack_b);
 	if (len == 1)
-		pa(stack_a, stack_b);
+		pa(stack_a, stack_b, "pa");
 	while (pos->stack_a-- > 0)
 		ra_b(stack_a, "ra");
 	while (++pos->stack_a < 0)
@@ -47,7 +47,7 @@ void	place_in_stack(t_pos *pos, t_list **stack_a, t_list **stack_b)
 	while (++pos->stack_b < 0)
 		rra_b(stack_b, "rrb");
 	if (len != 1)
-		pa(stack_a, stack_b);
+		pa(stack_a, stack_b, "pa");
 }
 
 void	solve(t_list **stack_a, t_list **stack_b)

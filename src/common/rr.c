@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   p.c                                                :+:      :+:    :+:   */
+/*   rr.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/13 16:23:33 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/30 15:11:30 by hubretec         ###   ########.fr       */
+/*   Created: 2022/01/27 23:22:33 by hubretec          #+#    #+#             */
+/*   Updated: 2022/02/01 20:23:12 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_list **a, t_list **b)
+void	rra_b(t_list **stack, char *str)
 {
-	if (!*b)
-		return ;
-	ft_lstadd_front(a, pop_top(b));
-	ft_putendl_fd("pa", STDOUT);
+	ft_lstadd_front(stack, pop_bottom(stack));
+	if (str)
+		ft_putendl_fd(str, STDOUT);
 }
 
-void	pb(t_list **a, t_list **b)
+void	rrr(t_list **a, t_list **b, char *str)
 {
-	if (!*a)
-		return ;
-	ft_lstadd_front(b, pop_top(a));
-	ft_putendl_fd("pb", STDOUT);
+	rra_b(a, NULL);
+	rra_b(b, NULL);
+	if (str)
+		ft_putendl_fd("rrr", STDOUT);
 }

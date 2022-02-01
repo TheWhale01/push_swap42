@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   r.c                                                :+:      :+:    :+:   */
+/*   p.c                                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/13 16:28:07 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/27 23:41:55 by hubretec         ###   ########.fr       */
+/*   Created: 2022/01/13 16:23:33 by hubretec          #+#    #+#             */
+/*   Updated: 2022/02/01 20:21:26 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra_b(t_list **stack, char *str)
+void	pa(t_list **a, t_list **b, char *str)
 {
-	ft_lstadd_back(stack, pop_top(stack));
+	if (!*b)
+		return ;
+	ft_lstadd_front(a, pop_top(b));
 	if (str)
 		ft_putendl_fd(str, STDOUT);
 }
 
-void	rr(t_list **a, t_list **b)
+void	pb(t_list **a, t_list **b, char *str)
 {
-	ra_b(a, NULL);
-	ra_b(b, NULL);
-	ft_putendl_fd("rr", STDOUT);
+	if (!*a)
+		return ;
+	ft_lstadd_front(b, pop_top(a));
+	if (str)
+		ft_putendl_fd(str, STDOUT);
 }
