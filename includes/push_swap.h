@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 19:26:35 by hubretec          #+#    #+#             */
-/*   Updated: 2022/02/01 14:12:53 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/02/01 14:39:57 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_pos
 
 int		tablen(char **tab);
 int		check_sorted(t_list **lst);
+int		simple_sort(t_list **stack_a, t_list **stack_b);
 
 void	pa(t_list **a, t_list **b);
 void	pb(t_list **a, t_list **b);
