@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 21:52:01 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/30 20:56:05 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/02/01 13:50:24 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	push_to_b(t_list **stack_a, t_list **stack_b)
 	med = ft_lst_find_at_index(sorted, ft_lstsize(sorted) / 2);
 	while ((*stack_a)->next)
 	{
-		while (*(int *)(*stack_a)->content < *(int *)med->content
+		while (*(int *)(*stack_a)->content <= *(int *)med->content
 			&& index <= len / 2)
 		{
 			ra_b(stack_a, "ra");

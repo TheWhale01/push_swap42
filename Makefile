@@ -9,9 +9,9 @@ CFLAGS=-Wall -Wextra -Werror -I $(INCLUDES)
 #push_swap files
 SRC_DIR_PUSH_SWAP=src/push_swap/
 OBJ_DIR_PUSH_SWAP=obj/push_swap/
-CFILES_PUSH_SWAP=$(addprefix $(SRC_DIR_PUSH_SWAP), main.c solver.c med.c cost.c $(COMMON_DIR)check.c \
-$(COMMON_DIR)stack.c $(COMMON_DIR)utils.c $(COMMON_DIR)pop.c $(COMMON_DIR)s.c $(COMMON_DIR)p.c \
-$(COMMON_DIR)r.c $(COMMON_DIR)rr.c)
+CFILES_PUSH_SWAP=$(addprefix $(SRC_DIR_PUSH_SWAP), main.c solver.c med.c cost.c \
+stack/s.c stack/p.c stack/r.c stack/rr.c $(COMMON_DIR)check.c \
+$(COMMON_DIR)stack.c $(COMMON_DIR)utils.c $(COMMON_DIR)pop.c)
 OBJS=$(patsubst $(SRC_DIR_PUSH_SWAP)%.c, $(OBJ_DIR_PUSH_SWAP)%.o, $(CFILES_PUSH_SWAP))
 NAME_PUSH_SWAP=$(BIN_DIR)push_swap
 

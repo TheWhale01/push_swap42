@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 14:39:26 by hubretec          #+#    #+#             */
-/*   Updated: 2022/02/01 12:56:13 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/02/01 13:25:00 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	solve(t_list **stack_a, t_list **stack_b)
 	int		index;
 	t_pos	pos;
 
+	len = ft_lstsize(*stack_a);
 	push_to_b(stack_a, stack_b);
 	while (*stack_b)
 	{
@@ -65,7 +66,6 @@ void	solve(t_list **stack_a, t_list **stack_b)
 	index = ft_lstindex(ft_lstmin(*stack_a), *stack_a);
 	if (index)
 	{
-		len = ft_lstsize(*stack_a);
 		if (index <= len / 2)
 			while (index--)
 				ra_b(stack_a, "ra");
