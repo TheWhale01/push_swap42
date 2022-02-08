@@ -58,7 +58,7 @@ int	checker(t_list **stack_a, t_list **stack_b)
 		}
 		free(line);
 	}
-	if (!check_sorted(stack_a))
+	if (!check_sorted(stack_a) && *stack_b)
 		return (0);
 	return (1);
 }

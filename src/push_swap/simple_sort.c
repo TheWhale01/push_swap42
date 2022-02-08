@@ -68,7 +68,7 @@ int	sort_five(t_list **stack_a, t_list **stack_b)
 			rra_b(stack_a, "rra");
 	pb(stack_a, stack_b, "pb");
 	sort_four(stack_a, stack_b);
-	pa(stack_a, stack_b, "pb");
+	pa(stack_a, stack_b, "pa");
 	return (1);
 }
 
