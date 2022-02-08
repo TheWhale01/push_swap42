@@ -25,7 +25,6 @@ int	check_sorted(t_list **stack)
 			return (0);
 		tmp = tmp->next;
 	}
-	ft_lstclear(stack, free);
 	return (1);
 }
 

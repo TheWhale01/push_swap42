@@ -15,27 +15,27 @@
 
 int	do_op(char *line, t_list **stack_a, t_list **stack_b)
 {
-	if (!ft_strcmp(line, "sa\n"))
+	if (!ft_strncmp(line, "sa", 2))
 		sa_b(stack_a, NULL);
-	else if (!ft_strcmp(line, "sb\n"))
+	else if (!ft_strncmp(line, "sb", 2))
 		sa_b(stack_b, NULL);
-	else if (!ft_strcmp(line, "ss\n"))
+	else if (!ft_strncmp(line, "ss", 2))
 		ss(stack_a, stack_b, NULL);
-	else if (!ft_strcmp(line, "pa\n"))
+	else if (!ft_strncmp(line, "pa", 2))
 		pa(stack_a, stack_b, NULL);
-	else if (!ft_strcmp(line, "pb\n"))
+	else if (!ft_strncmp(line, "pb", 2))
 		pb(stack_a, stack_b, NULL);
-	else if (!ft_strcmp(line, "ra\n"))
+	else if (!ft_strncmp(line, "ra", 2))
 		ra_b(stack_a, NULL);
-	else if (!ft_strcmp(line, "rb\n"))
+	else if (!ft_strncmp(line, "rb", 2))
 		ra_b(stack_b, NULL);
-	else if (!ft_strcmp(line, "rr\n"))
+	else if (!ft_strncmp(line, "rr", 2))
 		rr(stack_a, stack_b, NULL);
-	else if (!ft_strcmp(line, "rra\n"))
+	else if (!ft_strncmp(line, "rra", 3))
 		rra_b(stack_a, NULL);
-	else if (!ft_strcmp(line, "rrb\n"))
+	else if (!ft_strncmp(line, "rrb", 3))
 		rra_b(stack_b, NULL);
-	else if (!ft_strcmp(line, "rrr\n"))
+	else if (!ft_strncmp(line, "rrr", 3))
 		rrr(stack_a, stack_b, NULL);
 	else
 		return (0);
