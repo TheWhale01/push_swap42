@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hubretec <hubretec@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:49:56 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/27 22:59:29 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/02/10 14:11:04 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,9 @@ int	check_double(char **tab)
 		j = i + 1;
 		index1 = 0;
 		index2 = 0;
+		if ((ft_strlen(tab[i]) > 2 && (tab[i][0] == '+' || tab[i][0] == '-')
+			&& tab[i][1] == '0') || (ft_strlen(tab[i]) > 1 && tab[i][0] == '0'))
+			return (1);
 		while (tab[j])
 		{
 			if (tab[i][0] == '+')
