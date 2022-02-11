@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hubretec <hubretec@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 12:20:13 by hubretec          #+#    #+#             */
-/*   Updated: 2022/01/24 15:39:11 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/02/11 14:36:14 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ t_list	*stack_init(char **tab)
 		if (nb < INT_MIN || nb > INT_MAX)
 		{
 			ft_putendl_fd("Error", STDERR);
+			free_tab(tab);
 			return (free_lst(&stack));
 		}
 		tmp = ft_lstnew(&nb, sizeof(tmp->content));
