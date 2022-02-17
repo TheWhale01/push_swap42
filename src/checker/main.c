@@ -3,15 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hubretec <hubretec@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 18:50:55 by hubretec          #+#    #+#             */
-/*   Updated: 2022/02/01 20:15:11 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/02/17 10:31:04 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "push_swap.h"
+
+void	display_lst(t_list *stack)
+{
+	t_list	*tmp;
+
+	tmp = stack;
+	while (tmp)
+	{
+		ft_printf("%d -> ", *(int *)tmp->content);
+		tmp = tmp->next;
+	}
+	ft_printf("NULL\n");
+}
 
 int	main(int ac, char **av)
 {
@@ -19,7 +32,9 @@ int	main(int ac, char **av)
 	t_list	*b;
 
 	b = NULL;
+	ft_printf("nb args: %d\n", ac);
 	a = stack_init(check(ac, av));
+	display_lst(a);
 	if (!a)
 		return (0);
 	if (checker(&a, &b))

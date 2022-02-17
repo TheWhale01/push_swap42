@@ -46,6 +46,9 @@ all: $(NAME_PUSH_SWAP)
 
 checker: $(NAME_PUSH_SWAP) $(NAME_CHECKER)
 
+checker_debug: CFLAGS=-Wall -Wextra -Werror -I $(INCLUDES) -g
+checker_debug: checker
+
 debug: CFLAGS=-Wall -Wextra -Werror -I $(INCLUDES) -g
 debug: $(NAME_PUSH_SWAP)
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hubretec <hubretec@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 14:01:08 by hubretec          #+#    #+#             */
-/*   Updated: 2022/02/01 14:13:04 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/02/17 10:12:27 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ int	tablen(char **tab)
 void	exit_with_msg(char *str, char **tab)
 {
 	free_tab(tab);
-	ft_putendl_fd(str, STDERR);
+	if (str)
+		ft_putendl_fd(str, STDERR);
 	exit(0);
 }
 

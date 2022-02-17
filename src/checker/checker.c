@@ -6,7 +6,7 @@
 /*   By: hubretec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 18:32:42 by hubretec          #+#    #+#             */
-/*   Updated: 2022/02/01 20:26:49 by hubretec         ###   ########.fr       */
+/*   Updated: 2022/02/17 10:37:11 by hubretec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,27 @@
 
 int	do_op(char *line, t_list **stack_a, t_list **stack_b)
 {
-	if (!ft_strncmp(line, "sa", 2))
+	if (!ft_strcmp(line, "sa\n"))
 		sa_b(stack_a, NULL);
-	else if (!ft_strncmp(line, "sb", 2))
+	else if (!ft_strcmp(line, "sb\n"))
 		sa_b(stack_b, NULL);
-	else if (!ft_strncmp(line, "ss", 2))
+	else if (!ft_strcmp(line, "ss\n"))
 		ss(stack_a, stack_b, NULL);
-	else if (!ft_strncmp(line, "pa", 2))
+	else if (!ft_strcmp(line, "pa\n"))
 		pa(stack_a, stack_b, NULL);
-	else if (!ft_strncmp(line, "pb", 2))
+	else if (!ft_strcmp(line, "pb\n"))
 		pb(stack_a, stack_b, NULL);
-	else if (!ft_strncmp(line, "ra", 2))
+	else if (!ft_strcmp(line, "ra\n"))
 		ra_b(stack_a, NULL);
-	else if (!ft_strncmp(line, "rb", 2))
+	else if (!ft_strcmp(line, "rb\n"))
 		ra_b(stack_b, NULL);
-	else if (!ft_strncmp(line, "rr", 2))
+	else if (!ft_strcmp(line, "rr\n"))
 		rr(stack_a, stack_b, NULL);
-	else if (!ft_strncmp(line, "rra", 3))
+	else if (!ft_strcmp(line, "rra\n"))
 		rra_b(stack_a, NULL);
-	else if (!ft_strncmp(line, "rrb", 3))
+	else if (!ft_strcmp(line, "rrb\n"))
 		rra_b(stack_b, NULL);
-	else if (!ft_strncmp(line, "rrr", 3))
+	else if (!ft_strcmp(line, "rrr\n"))
 		rrr(stack_a, stack_b, NULL);
 	else
 		return (0);
